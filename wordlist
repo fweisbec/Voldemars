@@ -1,0 +1,12 @@
+#
+# n = Noun
+# format: n french_word english_word latvian_word
+#
+# a = Adjective
+# format: a french_word english_word latvian_word
+
+n nuit night nakts
+a bon labs good
+n maison house māja
+n feu fire uguns
+n chat cat kaķis
