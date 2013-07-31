@@ -1,12 +1,35 @@
 #
 # n = Noun
-# format: n french_word english_word latvian_word
+# format: n french_word english_word latvian_word russian_word
 #
 # a = Adjective
-# format: a french_word english_word latvian_word
+# format: a french_word english_word latvian_word russian_word
+#
+# p = Pronoun
+# format: a french_word english_word latvian_word russian_word
+#
+# c = Conjunction
+# format: a french_word english_word latvian_word russian_word
+#
+# ad = Adverb
+# format: a french_word english_word latvian_word russian_word
+#
+# r = Adverb
+# format: a french_word english_word latvian_word russian_word
 
-n nuit night nakts
-a bon good labs
-n maison house māja
-n feu fire uguns
-n chat cat kaķis
+n nuit night nakts ночь
+a bon good labs хороший
+n maison house māja дом
+n feu fire uguns огонь
+n chat cat kaķis кошка
+a joli pretty jauks красивый
+n fille girl meita девушка
+p je I es я
+c et and un и
+p vous you tu вы
+r cela this tas что
+a maintenant now tagad сейчас
+r merci thanks paldies спасибо
+a peut-être maybe varbūt может_быть
+a loin far prom далеко
+
