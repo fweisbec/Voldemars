@@ -30,6 +30,8 @@ p vous you tu вы
 r cela this tas что
 a maintenant now tagad сейчас
 r merci thanks paldies спасибо
-a peut-être maybe varbūt может_быть
-a loin far prom далеко
+# может_быть
+a peut-être maybe varbūt *
+# далеко
+a loin far prom *
 
