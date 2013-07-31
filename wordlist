@@ -14,7 +14,7 @@
 # ad = Adverb
 # format: a french_word english_word latvian_word russian_word
 #
-# r = Adverb
+# r = raw
 # format: a french_word english_word latvian_word russian_word
 
 n nuit night nakts ночь
@@ -31,7 +31,19 @@ r cela this tas что
 a maintenant now tagad сейчас
 r merci thanks paldies спасибо
 # может_быть
-a peut-être maybe varbūt *
+ad peut-être maybe varbūt *
 # далеко
-a loin far prom *
-
+ad loin far prom *
+a quel which * какой
+a grand tall * большой
+a petit small * маленький
+a nouveau new * новый
+a vieux old * старый
+a jeune young * молодой
+a bon/gentil nice * добрый
+a bon/bon_goût tasty * вкусный
+a mauvais bad * плохой
+a intéressant * интересный
+v dire say tell сказать
+v savoir know * знать
+ad aussi too * тоже
