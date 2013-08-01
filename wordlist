@@ -26,16 +26,22 @@ a joli pretty jauks красивый
 n fille girl meita девушка
 p je I es я
 c et and un и
-p vous you tu вы
+p vous you jūs вы
 r cela this tas что
 a maintenant now tagad сейчас
 r merci thanks paldies спасибо
-# может_быть
-ad peut-être maybe varbūt *
+n jardin garden dārzs *
+r je_suis I_am * esmu *
+n père father tēvs *
+n chaud hot silts *
+n matin morning rīts *
+n feu fire uguns *
+n oeuf egg ola *
+n bateau boat laiva *
 # далеко
 ad loin far prom *
 a quel which * какой
-a grand tall * большой
+a grand tall liels большой
 a petit small * маленький
 a nouveau new * новый
 a vieux old * старый
@@ -43,7 +49,7 @@ a jeune young * молодой
 a bon/gentil nice * добрый
 a bon/bon_goût tasty * вкусный
 a mauvais bad * плохой
-a intéressant * интересный
+a intéressant * * интересный
 v dire say tell сказать
 v savoir know * знать
 ad aussi too * тоже
@@ -53,7 +59,7 @@ n parent * родитель
 n fille(enfant) daughter * дочка
 n fils son * сын
 n enfants children * дети
-n frère brother * брат
+n frère brother brālis брат
 n soeur sister * сестра
 n grand-mère grandmother * бабушка
 # дед
@@ -63,12 +69,15 @@ n mère mother * мать
 n femme(épouse) wife * жена
 n chien dog * собака
 n famille family * семья
-n personne somebody * человек
+n personne somebody cilvēks человек
 n gens people * люди
 n homme man * мужчина
 n femme woman * женщина
 n jeune_homme * * молодой_человек
 n fillette * * девочка
-n garçon boy * мальчик
+n garçon boy puika мальчик
 n monsieur mister * господин
 n madame miss * госпожа
+n boire drink dzert *
+n oui yes jā  *
+n automne fall rudens *
