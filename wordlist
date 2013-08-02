@@ -35,7 +35,6 @@ r je_suis I_am * esmu *
 n père father tēvs *
 n chaud hot silts *
 n matin morning rīts *
-n feu fire uguns *
 n oeuf egg ola *
 n bateau boat laiva *
 # далеко
@@ -50,7 +49,7 @@ a bon/gentil nice * добрый
 a bon/bon_goût tasty * вкусный
 a mauvais bad * плохой
 a intéressant * * интересный
-v dire say tell сказать
+v dire tell * сказать
 v savoir know * знать
 ad aussi too * тоже
 n maman mum * мама
@@ -81,3 +80,10 @@ n madame miss * госпожа
 n boire drink dzert *
 n oui yes jā  *
 n automne fall rudens *
+p quand when * когда
+ad peut-être maybe * может-быть
+ad plus-tard later * позже
+v manger eat * есть
+v boire drink * пить
+v avoir_envie * * хотеть
+ad quelquechose something * что-нибудь
