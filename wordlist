@@ -1,4 +1,3 @@
-#
 # n = Noun
 # format: n french_word english_word latvian_word russian_word
 #
@@ -41,13 +40,13 @@ n bateau boat laiva *
 ad loin far prom *
 a quel which * какой
 a grand tall liels большой
-a petit small * маленький
+a petit small mazs маленький
 a nouveau new * новый
-a vieux old * старый
-a jeune young * молодой
+a vieux old vecs старый
+a jeune young jauns молодой
 a bon/gentil nice * добрый
 a bon/bon_goût tasty * вкусный
-a mauvais bad * плохой
+a mauvais bad slikts плохой
 a intéressant * * интересный
 v dire tell sacīt сказать
 v savoir know * знать
@@ -64,7 +63,7 @@ n grand-mère grandmother * бабушка
 # дед
 n grand-père grandfather * дедушка
 n mari husband * муж
-n mère mother * мать
+n mère mother māte мать
 n femme(épouse) wife * жена
 n chien dog * собака
 n famille family * семья
@@ -88,3 +87,21 @@ v boire drink * пить
 v avoir_envie * * хотеть
 ad quelquechose something * что-нибудь
 v prendre take ņemt *
+n terre earth * zeme
+n porte door * durvis
+n nom name * uzvārds
+n prénom surname * vārds
+n chemin way * ceļš
+n ami friend * draugs
+a formidable awesome * lielisks
+a haut high * augsts
+a bas low * zems
+a froid cold * auksts
+a cher expensive * dārgs
+a bon-marché cheap * lēts
+a clair * * gaišs
+a sombre dark * tumšs
+a savoureux tasty * gards
+a laid ugly * neglīts
+a long long * ilgs
+a court short * īss
