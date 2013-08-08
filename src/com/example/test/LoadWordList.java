@@ -10,14 +10,12 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
-import android.os.AsyncTask;
 import android.os.Environment;
 
 
 class HttpToFileAsync extends Thread {
-	String remote, local;
+	private String remote, local;
 	volatile boolean completed;
 
 	HttpToFileAsync(String url, String file) {
@@ -61,10 +59,7 @@ public class LoadWordList {
 	static String remote_list = remote + "wordlist";
 	static String remote_ver = remote + "wordlist_ver";
 
-	static String local;
-	static String local_list;
-	static String local_ver;
-	static String local_tmp;
+	private String local, local_list, local_ver;
 
 
 	private int get_local_version() {

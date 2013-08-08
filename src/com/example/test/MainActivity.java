@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import android.os.Bundle;
 import android.app.Activity;
 import android.text.InputType;
-import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
@@ -48,7 +47,9 @@ public class MainActivity extends Activity {
     	TextView out_native;
     	WordListIterator word_iter;
     	Button give_up_button, skip_button;
-    	TranslationButtonsListener listener;
+    	TranslationButtonsListener buttons_listener;
+    	TranslationInputListener input_listener;
+    	TranslationOutput out;
 
     	/* Hack to make runOnUiThread() happy :( */
     	me = this;
@@ -80,13 +81,20 @@ public class MainActivity extends Activity {
     	skip_button = (Button) findViewById(R.id.skip_button);
     	skip_button.setVisibility(View.VISIBLE);
 
+    	/* Word iterator and GUI */
+    	out = new TranslationOutput(in_translated, out_native);
+    	word_iter = new WordListIterator(out);
+    	
     	/* Give up and skip buttons listener */
-    	word_iter = new WordListIterator(in_translated, out_native);
-    	listener = new TranslationButtonsListener(give_up_button, skip_button, word_iter);
+    	buttons_listener = new TranslationButtonsListener(give_up_button, skip_button, word_iter, out);
+    	give_up_button.setOnClickListener(buttons_listener);
+        skip_button.setOnClickListener(buttons_listener);
+    	
+    	/* User input listener */
+    	input_listener = new TranslationInputListener(word_iter, out);
+    	in_translated.setOnEditorActionListener(input_listener);
 
-    	in_translated.setOnEditorActionListener(word_iter);
+    	/* Lets go */
         word_iter.init(list);
-        give_up_button.setOnClickListener(listener);
-        skip_button.setOnClickListener(listener);
     }
 }
