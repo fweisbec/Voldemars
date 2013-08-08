@@ -16,11 +16,11 @@ import android.os.AsyncTask;
 import android.os.Environment;
 
 
-class UpdateLocalTask extends Thread {
+class HttpToFileAsync extends Thread {
 	String remote, local;
 	volatile boolean completed;
 
-	UpdateLocalTask(String url, String file) {
+	HttpToFileAsync(String url, String file) {
 		super();
 		this.remote = url;
 		this.local = file;
@@ -172,11 +172,11 @@ public class LoadWordList {
 
 	private void update_local(String url, String path) throws InterruptedException {
 		File file = new File(local);
-		UpdateLocalTask task;
+		HttpToFileAsync task;
 		if (!file.exists())
 			file.mkdir();
 
-		task = new UpdateLocalTask(url, path);
+		task = new HttpToFileAsync(url, path);
 		task.start();
 
 		synchronized (task) {
