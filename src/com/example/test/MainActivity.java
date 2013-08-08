@@ -48,7 +48,7 @@ public class MainActivity extends Activity {
     	TextView out_native;
     	WordListIterator word_iter;
     	Button give_up_button, skip_button;
-    	WordListButtonsListener listener;
+    	TranslationButtonsListener listener;
 
     	/* Hack to make runOnUiThread() happy :( */
     	me = this;
@@ -82,7 +82,7 @@ public class MainActivity extends Activity {
 
     	/* Give up and skip buttons listener */
     	word_iter = new WordListIterator(in_translated, out_native);
-    	listener = new WordListButtonsListener(give_up_button, skip_button, word_iter);
+    	listener = new TranslationButtonsListener(give_up_button, skip_button, word_iter);
 
     	in_translated.setOnEditorActionListener(word_iter);
         word_iter.init(list);

@@ -3,11 +3,11 @@ package com.example.test;
 import android.view.View;
 import android.widget.Button;
 
-public class WordListButtonsListener implements View.OnClickListener {
+public class TranslationButtonsListener implements View.OnClickListener {
 	private WordListIterator iter;
 	private Button giveup, skip;
 
-	WordListButtonsListener(Button giveup, Button skip, WordListIterator iter) {
+	TranslationButtonsListener(Button giveup, Button skip, WordListIterator iter) {
 		super();
 		this.giveup = giveup;
 		this.skip = skip;
