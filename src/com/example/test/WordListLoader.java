@@ -54,7 +54,7 @@ class HttpToFileAsync extends Thread {
 }
 
 
-public class LoadWordList {
+public class WordListLoader {
 	static String remote = "https://raw.github.com/fweisbec/Voldemars/master/";
 	static String remote_list = remote + "wordlist";
 	static String remote_ver = remote + "wordlist_ver";
@@ -105,8 +105,8 @@ public class LoadWordList {
 		return true;
 	}
 
-	private void parseLine(Scanner scan, ArrayList<WordList> list) {
-		WordList wl;
+	private void parseLine(Scanner scan, ArrayList<Word> list) {
+		Word wl;
 		String french, english, latvian, russian;
 		String s;
 
@@ -132,7 +132,7 @@ public class LoadWordList {
 			return;
 
 		latvian = scan.next();
-		if (WordList.curr_translated == WordList.Lang.LATVIAN)
+		if (Word.curr_translated == Word.Lang.LATVIAN)
 			if (latvian.equals("*"))
 				return;
 
@@ -140,17 +140,17 @@ public class LoadWordList {
 			return;
 
 		russian = scan.next();
-		if (WordList.curr_translated == WordList.Lang.RUSSIAN)
+		if (Word.curr_translated == Word.Lang.RUSSIAN)
 			if (russian.equals("*"))
 				return;
 
-		wl = new WordList(french, english, latvian, russian);
+		wl = new Word(french, english, latvian, russian);
 		list.add(wl);
 	}
 
-	public ArrayList<WordList> getWordList() {
+	public WordList getWordList() {
 		File file = new File(local_list);
-		ArrayList<WordList> list = new ArrayList<WordList>();
+		WordList list = new WordList();
 
 		try {
 			Scanner scan = new Scanner(file);

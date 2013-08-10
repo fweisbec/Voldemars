@@ -4,8 +4,8 @@ import java.util.Collections;
 
 public class WordListIterator {
 	private int idx;
-	private WordList curr_word;
-	private ArrayList<WordList> list;
+	private Word curr_word;
+	private WordList list;
 	private TranslationOutput out;
 
 	public WordListIterator(TranslationOutput out) {
@@ -26,7 +26,7 @@ public class WordListIterator {
 		out.reset_translation();
 	}
 
-	public void init(ArrayList<WordList> list) {
+	public void init(WordList list) {
 		this.list = list;
 		Collections.shuffle(list);
 		Debug.out("idx " + Integer.valueOf(idx));

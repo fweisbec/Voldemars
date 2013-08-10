@@ -55,11 +55,11 @@ public class MainActivity extends Activity {
     	me = this;
 
     	/* Word list update, parse and load */
-    	LoadWordList loadlist = new LoadWordList();
+    	WordListLoader loadlist = new WordListLoader();
     	if (!loadlist.load())
     		System.exit(-1);
 
-    	ArrayList<WordList> list = loadlist.getWordList();
+    	WordList list = loadlist.getWordList();
     	if (list == null || list.size() == 0)
     		System.exit(-1);
 

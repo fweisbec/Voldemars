@@ -17,9 +17,9 @@ public class ChoiceLanguageButtonListener implements View.OnClickListener {
 	@Override
 	public void onClick(View arg0) {
 		if (arg0 == this.latvian)
-			WordList.curr_translated = WordList.Lang.LATVIAN;
+			Word.curr_translated = Word.Lang.LATVIAN;
 		else if (arg0 == this.russian)
-			WordList.curr_translated = WordList.Lang.RUSSIAN;
+			Word.curr_translated = Word.Lang.RUSSIAN;
 
 		latvian.setVisibility(View.INVISIBLE);
 		russian.setVisibility(View.INVISIBLE);
