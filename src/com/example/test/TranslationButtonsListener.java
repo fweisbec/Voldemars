@@ -19,8 +19,8 @@ public class TranslationButtonsListener implements View.OnClickListener {
 	@Override
 	public void onClick(View arg0) {
 		if (arg0 == giveup)
-			out.overwrite_translation(iter.curr_translation());
+			iter.giveup();
 		else if (arg0 == skip)
-			iter.iter();
+			iter.skip();
 	}
 }

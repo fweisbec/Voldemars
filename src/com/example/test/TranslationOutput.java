@@ -1,5 +1,6 @@
 package com.example.test;
 
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -23,11 +24,19 @@ public class TranslationOutput {
 		in_translated.setCursorVisible(false);
 	}
 	
+//	@SuppressLint("DefaultLocale")
+	public void show_mark(int nr_asked, int nr_success) {
+		String mark = String.format("Total: %d/%d", nr_asked, nr_success);
+		out_native.setTextColor(Color.MAGENTA);
+		out_native.setText(mark);
+	}
+	
 	public void overwrite_translation(String s) {
 		in_translated.setText(s);
 	}
 	
 	public void reset_translation() {
+		out_native.setTextColor(Color.BLACK);
 		in_translated.setTextColor(Color.BLACK);
 		in_translated.setCursorVisible(true);
 	}

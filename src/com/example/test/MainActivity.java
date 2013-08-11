@@ -15,10 +15,13 @@ import android.widget.TextView;
 public class MainActivity extends Activity {
 
 	static MainActivity me;
+	WordList list;
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Settings.init();
         ask_language();
     }
 
@@ -28,6 +31,13 @@ public class MainActivity extends Activity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
+    }
+    
+    @Override
+    protected void onDestroy() {
+    	super.onDestroy();
+    	if (list != null)
+    		list.save_rates();
     }
 
     private void ask_language() {
@@ -59,9 +69,12 @@ public class MainActivity extends Activity {
     	if (!loadlist.load())
     		System.exit(-1);
 
-    	WordList list = loadlist.getWordList();
+    	list = loadlist.getWordList();
     	if (list == null || list.size() == 0)
     		System.exit(-1);
+    	
+    	list.load_rates();
+    	//Debug.out(list);
 
     	/* Translated input text */
     	in_translated = (EditText) findViewById(R.id.in_latvian);
@@ -91,7 +104,7 @@ public class MainActivity extends Activity {
         skip_button.setOnClickListener(buttons_listener);
     	
     	/* User input listener */
-    	input_listener = new TranslationInputListener(word_iter, out);
+    	input_listener = new TranslationInputListener(word_iter);
     	in_translated.setOnEditorActionListener(input_listener);
 
     	/* Lets go */

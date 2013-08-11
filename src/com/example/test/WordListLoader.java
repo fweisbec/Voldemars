@@ -82,15 +82,10 @@ public class WordListLoader {
 	public boolean load() throws InterruptedException {
 		int old_version, new_version;
 
-		String state = Environment.getExternalStorageState();
-
-		if (!Environment.MEDIA_MOUNTED.equals(state)) {
-			//throw new Error(state);
+		local = Settings.local_path;
+		if (local == null)
 			return false;
-		}
-
-		local = Environment.getExternalStorageDirectory().getAbsolutePath();
-		local += "/Voldemars";
+		
 		local_list = local + "/wordlist";
 		local_ver = local + "/wordlist_ver";
 

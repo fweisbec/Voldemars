@@ -8,6 +8,6 @@ public final class Debug{
     private Debug (){}
 
     public static void out (Object msg){
-        Log.e ("error", "error " + msg.toString ());
+        Log.e ("error", msg.toString ());
     }
 }
