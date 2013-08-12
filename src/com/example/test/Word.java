@@ -36,6 +36,6 @@ public class Word implements Comparable<Word> {
 
 	@Override
 	public int compareTo(Word another) {
-		return this.stats.rate().compareTo(another.stats.rate());
+		return stats.compareTo(another.stats);
 	}
 }

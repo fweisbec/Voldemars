@@ -47,7 +47,8 @@ public class WordListIterator {
 	
 	public void init(WordList list) {
 		this.list = list;
-		iter_noaccount();
+		out.set_next(list.curr().french);
+		curr_failed = false;
 	}
 	
 	public void skip() {

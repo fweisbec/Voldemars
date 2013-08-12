@@ -74,7 +74,7 @@ public class MainActivity extends Activity {
     		System.exit(-1);
     	
     	list.load_rates();
-    	//Debug.out(list);
+    	Debug.out(list);
 
     	/* Translated input text */
     	in_translated = (EditText) findViewById(R.id.in_latvian);
