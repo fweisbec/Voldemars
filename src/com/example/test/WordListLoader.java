@@ -1,9 +1,12 @@
 package com.example.test;
 
 import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
@@ -100,62 +103,68 @@ public class WordListLoader {
 		return true;
 	}
 
-	private void parseLine(Scanner scan, ArrayList<Word> list) {
+	private boolean parseLine(String line, ArrayList<Word> list) {
 		Word wl;
-		String french, english, latvian, russian;
-		String s;
+		String type, french, english, latvian, russian;
+		String[] valid_types = {"n", "a", "p", "c", "r", "v", "ad"};
+		String[] values;
 
-		if (!scan.hasNext())
-			return;
+		values = line.split(";");
+		/* Malformed line */
+		if (values.length != 5)
+			return false;
 
-		s = scan.next().trim();
+		type = values[0].trim();
+		french = values[1].trim();
+		english = values[2].trim();
+		latvian = values[3].trim();
+		russian = values[4].trim();
 
-		if (!s.equals("n") && !s.equals("a") && !s.equals("p") && !s.equals("c") && !s.equals("r") && !s.equals("v") && !s.equals("ad"))
-			return;
-
-		if (!scan.hasNext())
-			return;
-
-		french = scan.next();
-
-		if (!scan.hasNext())
-			return;
-
-		english = scan.next();
-
-		if (!scan.hasNext())
-			return;
-
-		latvian = scan.next();
+		boolean type_is_valid = false;
+		
+		for (String valid_type : valid_types) {
+			if (valid_type.equals(type)) {
+				type_is_valid = true;
+				break;
+			}
+		}
+		
+		if (!type_is_valid)
+			return false;
+		
 		if (Word.curr_translated == Word.Lang.LATVIAN)
 			if (latvian.equals("*"))
-				return;
-
-		if (!scan.hasNext())
-			return;
-
-		russian = scan.next();
+				return true;
+		
 		if (Word.curr_translated == Word.Lang.RUSSIAN)
 			if (russian.equals("*"))
-				return;
+				return true;
 
 		wl = new Word(french, english, latvian, russian);
 		list.add(wl);
+		
+		return true;
 	}
 
+	/*
+	 * Inspired by http://www.mkyong.com/java/how-to-read-and-parse-csv-file-in-java/
+	 */
 	public WordList getWordList() {
-		File file = new File(local_list);
 		WordList list = new WordList();
-
+		
 		try {
-			Scanner scan = new Scanner(file);
-			String s;
+			FileReader fr = new FileReader(local_list);
+			BufferedReader br = new BufferedReader(fr);
+			String line;
 
-			while (scan.hasNext()) {
-				s = scan.nextLine();
-				parseLine(new Scanner(s), list);
+			while ((line = br.readLine()) != null) {
+				parseLine(line, list);
 			}
+			fr.close();
 		} catch (FileNotFoundException E){}
+		  catch (IOException e) {
+			e.printStackTrace();
+		}
 
 		return list;
 	}
