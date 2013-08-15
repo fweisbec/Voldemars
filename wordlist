@@ -126,8 +126,8 @@ n;chambre;room;istaba;*
 n;trois;three;tris;*
 v;louer;rent;īrēt;*
 r;avec plaisir;with pleasure;*;с удовольствием
-v;déjeuner;*;*;Пообедать
-n;restaurant;restaurant;*;pectopaн
+v;déjeuner;*;*;обедать
+n;restaurant;restaurant;*;ресторан
 r;au restaurant;*;*;в ресторане
 n;vin;wine;*;вино
 n;bière;bier;*;пиво
@@ -135,4 +135,46 @@ n;mort;death;*;смерть
 r;de rien;*;*;ничего
 r;asseyez-vous;sit down;*;садитесь
 r;de rien;you're welcome;*;не за что
+v;dites;tell me;*;скажите
+r;s'il vous plait;please;*;пожалуйста
+v;parler;*;*;говорить
+r;je parle;*;*;я говорю
+r;tu parles;*;*;ты говоришь
+r;il parle;*;*;он говорит
+r;nous parlons;*;*;мы говорим
+r;vous parlez;*;*;вы говорите
+r;ils parlent;*;*;они говорят
+v;fumer;to smoke;*;курить
+v;regarder;*;*;смотреть
+v;être debout;*;*;стоять
+n;france;*;*;франця
+n;français (langue);*;*;французский;
+français (nationalité);*;*;француз
+française (nationalité);*;*;француженка
+n;allemagne;*;*;германия
+a;allemand (nationalité);*;*;немец
+a;allemandе (nationalité);*;*;немка
+a;allemand (langue);*;*;немецкий
+n;angleterre;*;*;англия
+a;anglais (nationalité);*;*;англичанин
+a;anglaisе (nationalité);*;*;англичанка
+a;anglais (langue);*;*;английский
+v;lire;read;*;читать
+v;jouer;play;*;играть
+v;se promener;*;*;гулять
+v;travailler;work;*;работать
+v;se reposer;rest;*;отдыхать
+v;penser;think;*;думать
+v;ecouter;listen;*;слушать
+v;demander;ask;*;спашивать
+v;répondre;answer;*;отвечать
+v;comprendre;understand;*;понимать
+#v;prendre le petit-déjeuner;*;*;завтракать
+#v;dîner;have dinner;*;ужинать
+n;cuisine;*;*;кухия
+n;écrivain;writer;*;писатель
+n;acheter;buy;*;купить
+n;ou;or;*;или
+n;faire;do;*;делать
+n;hotel;hotel;*;гостиница
 
