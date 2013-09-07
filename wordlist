@@ -177,4 +177,8 @@ n;acheter;buy;*;купить
 n;ou;or;*;или
 n;faire;do;*;делать
 n;hotel;hotel;*;гостиница
-
+r;à l'hotel;*;*;в гостинице
+ad;ensemble;together;*;вместе
+r;avec qui;with whom;*;c кем
+r;avec vous;with you;*;c вами
+c;avec;with;*;c
