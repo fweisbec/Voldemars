@@ -8,6 +8,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.Random;
 
 import android.os.Environment;
 
@@ -32,7 +33,7 @@ public class WordList extends ArrayList<Word> {
 			return false;
 	}
 	
-	boolean save_rates() {
+	boolean save_stats() {
 		String path = get_stats_path();
 		try {
 			FileOutputStream fp;
@@ -96,7 +97,6 @@ public class WordList extends ArrayList<Word> {
 			for (;;) {
 				try {
 					stats = (WordStats)fo.readObject();
-			//		Debug.out(stats);
 					assign_stat(stats);
 				} catch (EOFException e) {
 					break;
@@ -104,7 +104,7 @@ public class WordList extends ArrayList<Word> {
 			}
 
 			fo.close();
-			Collections.sort(this);
+			//Collections.sort(this);
 			
 		} catch (Exception e) {
 			return false;
@@ -125,5 +125,60 @@ public class WordList extends ArrayList<Word> {
 		}
 		
 		return s.toString();
+	}
+	
+	private Word pop_rand(float rand) {
+		Word w = null;
+		float total = 0;
+		
+		for (Iterator<Word> it = this.iterator(); it.hasNext(); ) {
+			w = it.next();
+			
+			float weight = 1 / w.stats.rate();
+			total += weight; 
+			if (total >= rand) {
+				/*Debug.out("--\n");
+				Debug.out("rate: ");
+				Debug.out(weight);
+				Debug.out("total: ");
+				Debug.out(total);
+				Debug.out("rand: ");
+				Debug.out(rand);
+				Debug.out(w.russian);
+				Debug.out(w.stats);
+				Debug.out("\n");*/
+				this.remove(w);
+				return w;
+			}
+			
+		}
+		Debug.out("Random pop out of range");
+		return null;
+	}
+	
+	
+	// http://stackoverflow.com/questions/7209465/java-random-number-with-high-probability/7209490#7209490
+	public WordList sort() {
+		WordList sorted;
+		float total = 0;
+
+		for (Iterator<Word> it = this.iterator(); it.hasNext(); ) {
+			Word w = it.next();
+			
+			total += 1 / w.stats.rate();				
+		}
+		
+		sorted = new WordList();
+		
+		while (!this.isEmpty()) {
+			float rand = new Random().nextFloat();
+			rand *= total;
+			
+			Word w = pop_rand(rand);
+			sorted.add(w);
+			total -= 1 / w.stats.rate();
+		}
+		
+		return sorted;
 	}
 }

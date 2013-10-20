@@ -37,7 +37,7 @@ public class MainActivity extends Activity {
     protected void onDestroy() {
     	super.onDestroy();
     	if (list != null)
-    		list.save_rates();
+    		list.save_stats();
     }
 
     private void ask_language() {
@@ -63,7 +63,7 @@ public class MainActivity extends Activity {
 
     	/* Hack to make runOnUiThread() happy :( */
     	me = this;
-
+    	
     	/* Word list update, parse and load */
     	WordListLoader loadlist = new WordListLoader();
     	if (!loadlist.load())
@@ -74,7 +74,8 @@ public class MainActivity extends Activity {
     		System.exit(-1);
     	
     	list.load_rates();
-    	Debug.out(list);
+    	list = list.sort();
+    	//Debug.out(list);
 
     	/* Translated input text */
     	in_translated = (EditText) findViewById(R.id.in_latvian);
