@@ -170,8 +170,7 @@ v;demander;ask;*;спашивать
 v;répondre;answer;*;отвечать
 v;comprendre;understand;*;понимать
 #v;prendre le petit-déjeuner;*;*;завтракать
-#v;dîner;have dinner;*;ужинать
-n;cuisine;*;*;кухия
+n;cuisine;*;*;кухня
 n;écrivain;writer;*;писатель
 n;acheter;buy;*;купить
 n;ou;or;*;или
@@ -183,4 +182,15 @@ r;avec qui;with whom;*;с кем
 r;avec vous;with you;*;с вами
 c;avec;with;*;с
 v;dîner;have dinner;*;ужинать
+
+# Karandach (Annie Tchernychev) première page
+
+n;autobus;*;*;автобус
+n;distributeur de billets;ATM;*;автомат
+n;auteur;author;*;автор
+n;autoroute;motorway;*;автострада
+n;adresse;address;*;адрес
+n;acteur;actor;*;актёр
+n;ananas;*;*;ананас
+n;antenne;*;*;антенна
 
