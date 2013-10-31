@@ -127,18 +127,22 @@ public class WordList extends ArrayList<Word> {
 		return s.toString();
 	}
 	
-	private Word pop_rand(float rand) {
+	private Word pop_rand(float rand, float default_weight) {
 		Word w = null;
 		float total = 0;
 		
 		for (Iterator<Word> it = this.iterator(); it.hasNext(); ) {
+			float weight;
 			w = it.next();
 			
-			float weight = 1 / w.stats.rate();
+			weight = w.stats.weight();
+			if (weight < 1)
+				weight = default_weight;
+			
 			total += weight; 
 			if (total >= rand) {
 				/*Debug.out("--\n");
-				Debug.out("rate: ");
+				Debug.out("weight: ");
 				Debug.out(weight);
 				Debug.out("total: ");
 				Debug.out(total);
@@ -161,22 +165,38 @@ public class WordList extends ArrayList<Word> {
 	public WordList sort() {
 		WordList sorted;
 		float total = 0;
+		float default_weight;
+		int never_asked = 0;
 
 		for (Iterator<Word> it = this.iterator(); it.hasNext(); ) {
-			Word w = it.next();
+			Float weight;
 			
-			total += 1 / w.stats.rate();				
+			Word w = it.next();
+			weight = w.stats.weight();
+			if (weight >= 1)
+				total += weight;
+			else
+				never_asked++;
 		}
+		
+		default_weight = total;
+		total += default_weight * never_asked;
 		
 		sorted = new WordList();
 		
 		while (!this.isEmpty()) {
+			float weight;
 			float rand = new Random().nextFloat();
 			rand *= total;
 			
-			Word w = pop_rand(rand);
+			Word w = pop_rand(rand, default_weight);
 			sorted.add(w);
-			total -= 1 / w.stats.rate();
+			
+			weight = w.stats.weight();
+			if (weight < 1)
+				weight = default_weight;
+			
+			total -= weight;
 		}
 		
 		return sorted;

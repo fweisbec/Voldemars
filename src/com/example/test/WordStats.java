@@ -2,7 +2,7 @@ package com.example.test;
 
 import java.io.Serializable;
 
-public class WordStats implements Serializable, Comparable<WordStats> {
+public class WordStats implements Serializable{
 	String translated;
 	private Integer nr_asked;
 	private Integer nr_success;
@@ -13,10 +13,10 @@ public class WordStats implements Serializable, Comparable<WordStats> {
 		nr_success = new Integer(0);
 	}
 	
-	public Float rate() {
-		if (nr_asked == 0)
-			return (float) 0;
-		return ((float)nr_success) / ((float)nr_asked);
+	public Float weight() {
+		if (nr_success == 0)
+			return (float)-1;
+		return ((float)nr_asked) / ((float)nr_success);
 	}
 	
 	public void add_good_answer() {
@@ -27,7 +27,8 @@ public class WordStats implements Serializable, Comparable<WordStats> {
 	public void add_bad_answer() {
 		nr_asked++;
 	}
-	
+
+	/*
 	@Override
 	public int compareTo(WordStats another) {
 		int cmp;
@@ -37,7 +38,7 @@ public class WordStats implements Serializable, Comparable<WordStats> {
 			cmp = nr_asked.compareTo(another.nr_asked);
 		
 		return cmp;
-	}
+	}*/
 	
 	public String toString() {		
 		return String.format("%s asked: %d success: %d", translated, nr_asked, nr_success);

@@ -1,6 +1,6 @@
 package com.example.test;
 
-public class Word implements Comparable<Word> {
+public class Word {
 	public enum Lang {LATVIAN, RUSSIAN};
 	static Lang curr_translated;
 	String french;
@@ -34,8 +34,10 @@ public class Word implements Comparable<Word> {
 			return null;
 	}
 
+	/*
 	@Override
 	public int compareTo(Word another) {
 		return stats.compareTo(another.stats);
 	}
+	*/
 }
