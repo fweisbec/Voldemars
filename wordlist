@@ -197,11 +197,11 @@ n;antenne;*;*;антенна
 # Karandach (Annie Tchernychev) deuxième page
 
 n;orange;orange;*;апельсин
-n;pharmacie;*;аптека
-n;pastèque;*;арбуз
+n;pharmacie;*;*;аптека
+n;pastèque;*;*;арбуз
 n;armée;army;*;армия
-n;archéologue;*;археолог
-n;architecte;*;архитектор
-n;aéroport;*;аэропорт
-n;papillon;*;бабочка
+n;archéologue;*;*;археолог
+n;architecte;*;*;архитектор
+n;aéroport;airport;*;аэропорт
+n;papillon;butterfly;*;бабочка
 
