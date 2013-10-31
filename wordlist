@@ -183,10 +183,10 @@ r;avec vous;with you;*;с вами
 c;avec;with;*;с
 v;dîner;have dinner;*;ужинать
 
-# Karandach (Annie Tchernychev) première page
+# Karandach (Annie Tchernychev) page 1
 
 n;autobus;*;*;автобус
-n;distributeur de billets;ATM;*;автомат
+n;mitraillette;*;*;автомат
 n;auteur;author;*;автор
 n;autoroute;motorway;*;автострада
 n;adresse;address;*;адрес
@@ -194,7 +194,7 @@ n;acteur;actor;*;актёр
 n;ananas;*;*;ананас
 n;antenne;*;*;антенна
 
-# Karandach (Annie Tchernychev) deuxième page
+# Karandach (Annie Tchernychev) page 2
 
 n;orange;orange;*;апельсин
 n;pharmacie;*;*;аптека
@@ -205,3 +205,13 @@ n;architecte;*;*;архитектор
 n;aéroport;airport;*;аэропорт
 n;papillon;butterfly;*;бабочка
 
+# Karandach (Annie Tchernychev) page 3
+
+n;grand mère;grandmother;*;бабушка
+n;bagages;*;*;багаж
+n;balcon;*;*;балкон
+n;banane;*;*;банан
+n;banque;bank;*;банк
+n;bocal;*;*;банка
+n;banquier;*;*;банкир
+n;distributeur de billet;ATM;*;банкомат
