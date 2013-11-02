@@ -20,7 +20,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        //setContentView(R.layout.activity_main);
         Settings.init();
         ask_language();
     }
@@ -43,7 +43,8 @@ public class MainActivity extends Activity {
     private void ask_language() {
     	Button latvian, russian;
     	ChoiceLanguageButtonListener listener;	
-    	
+
+    	setContentView(R.layout.choose_language);
     	latvian = (Button) findViewById(R.id.latvian_button);
     	russian = (Button) findViewById(R.id.russian_button);
     	
@@ -61,6 +62,7 @@ public class MainActivity extends Activity {
     	TranslationInputListener input_listener;
     	TranslationOutput out;
 
+    	setContentView(R.layout.activity_main);
     	/* Hack to make runOnUiThread() happy :( */
     	me = this;
     	
@@ -79,21 +81,17 @@ public class MainActivity extends Activity {
 
     	/* Translated input text */
     	in_translated = (EditText) findViewById(R.id.in_latvian);
-    	in_translated.setVisibility(View.VISIBLE);
     	in_translated.setGravity(Gravity.CENTER);
     	in_translated.setInputType(InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
 
     	/* Native word display */
     	out_native = (TextView) findViewById(R.id.out_native);
-    	out_native.setVisibility(View.VISIBLE);
 
     	/* Give up button */
     	give_up_button = (Button) findViewById(R.id.give_up_button);
-    	give_up_button.setVisibility(View.VISIBLE);
 
     	/* Skip button */
     	skip_button = (Button) findViewById(R.id.skip_button);
-    	skip_button.setVisibility(View.VISIBLE);
 
     	/* Word iterator and GUI */
     	out = new TranslationOutput(in_translated, out_native);
