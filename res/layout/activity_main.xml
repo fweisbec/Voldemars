@@ -18,39 +18,37 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="30dp"
         android:visibility="visible" />
-
-    <EditText
-        android:id="@+id/in_latvian"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/out_native"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="94dp"
-        android:ems="10"
-        android:imeOptions="actionSend"
-        android:inputType="textNoSuggestions"
-        android:textSize="30dp"
-        android:visibility="visible" >
-
-        <requestFocus />
-    </EditText>
-
-    <Button
-        android:id="@+id/give_up_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/in_latvian"
-        android:text="Langue \n au chat"
-        android:visibility="visible" />
-
+        
     <Button
         android:id="@+id/skip_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/give_up_button"
         android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/give_up_button"
+        android:layout_alignTop="@id/give_up_button"
         android:text="Je passe"
+        android:visibility="visible" />
+
+    <Button
+        android:id="@id/give_up_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/in_latvian"
+        android:layout_centerVertical="true"
+        android:text="Langue \n au chat"
+        android:visibility="visible" />
+
+    <EditText
+        android:id="@id/in_latvian"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/skip_button"
+        android:layout_below="@id/skip_button"
+        android:ems="10"
+        android:layout_marginTop="5dp"
+        android:imeOptions="actionSend"
+        android:inputType="textNoSuggestions"
+        android:textSize="30dp"
         android:visibility="visible" />
 
 </RelativeLayout>
