@@ -226,3 +226,23 @@ n;ecureuil;squirrel;*;белка
 n;linge;*;*;бельё
 n;essence;*;*;бензин
 n;côte;coast;*;берег
+
+# Je parle russe, niveau 1 (Maria Zeltchenko)
+# Page 17 adverbes
+
+ 
+ad;comment;how;*;как
+ad;bien;*;*;хорошо
+ad;mal;*;*;плохо
+ad;vite;*;*;быстро
+ad;lentement;*;*;медленно
+ad;beaucoup;*;*;много
+ad;peu;*;*;мало
+ad;un petit peu;*;*;чуть чуть
+ad;souvent;*;*;часто
+ad;rarement;*;*;редко
+ad;très;*;*;очень
+ad;déjà;*;*;уже
+ad;encore;*;*;ещё
+ad;rien;*;*;ничего
+
