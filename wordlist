@@ -132,7 +132,7 @@ r;au restaurant;*;*;в ресторане
 n;vin;wine;*;вино
 n;bière;bier;*;пиво
 n;mort;death;*;смерть
-r;de rien;*;*;ничего
+r;ça ne fait rien;*;*;ничего
 r;asseyez-vous;sit down;*;садитесь
 r;de rien;you're welcome;*;не за что
 v;dites;tell me;*;скажите
@@ -264,18 +264,18 @@ n;hélicoptère;*;*;вертолёт
 # Page 17 adverbes
 
  
-ad;comment;how;*;как
-ad;bien;*;*;хорошо
-ad;mal;*;*;плохо
-ad;vite;*;*;быстро
-ad;lentement;*;*;медленно
-ad;beaucoup;*;*;много
-ad;peu;*;*;мало
-ad;un petit peu;*;*;чуть чуть
-ad;souvent;*;*;часто
-ad;rarement;*;*;редко
-ad;très;*;*;очень
-ad;déjà;*;*;уже
-ad;encore;*;*;ещё
-ad;rien;*;*;ничего
+ad;comment (adv);how;*;как
+ad;bien (adv);*;*;хорошо
+ad;mal (adv);*;*;плохо
+ad;vite (adv);*;*;быстро
+ad;lentement (adv);*;*;медленно
+ad;beaucoup (adv);*;*;много
+ad;peu (adv);*;*;мало
+ad;un petit peu (adv);*;*;чуть чуть
+ad;souvent (adv);*;*;часто
+ad;rarement (adv);*;*;редко
+ad;très (adv);*;*;очень
+ad;déjà (adv);*;*;уже
+ad;encore (adv);*;*;ещё
+ad;rien (adv);*;*;ничего
 
