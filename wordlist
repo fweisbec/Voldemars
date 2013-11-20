@@ -207,7 +207,7 @@ n;papillon;butterfly;*;бабочка
 
 # Karandach (Annie Tchernychev) page 10
 
-n;grand mère;grandmother;*;бабушка
+#n;grand mère;grandmother;*;бабушка
 n;bagages;*;*;багаж
 n;balcon;*;*;балкон
 n;banane;*;*;банан
