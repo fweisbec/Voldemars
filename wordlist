@@ -169,7 +169,7 @@ v;ecouter;listen;*;слушать
 v;demander;ask;*;спашивать
 v;répondre;answer;*;отвечать
 v;comprendre;understand;*;понимать
-#v;prendre le petit-déjeuner;*;*;завтракать
+v;prendre le petit-déjeuner;*;*;завтракать
 n;cuisine;*;*;кухня
 n;écrivain;writer;*;писатель
 n;acheter;buy;*;купить
@@ -251,7 +251,7 @@ n;bouteille;bottle;*;бутылка
 
 # Karandach (Annie Tchernychev) page 18
 
-n;wagon;*;*;*вагон
+n;wagon;*;*;вагон
 n;vase;*;*;ваза
 n;monnaie;*;*;валюта
 n;baignoire;bath;*;ванна
@@ -278,4 +278,12 @@ ad;très (adv);*;*;очень
 ad;déjà (adv);*;*;уже
 ad;encore (adv);*;*;ещё
 ad;rien (adv);*;*;ничего
+
+# поехали
+
+v;répéter;repeat;*;повторять
+v;étudier;study;*;изучать
+v;se souvenir;remember;*;помнить
+v;se dêpécher;hurry;*;спешить
+n;langue;language;*;язык
 
