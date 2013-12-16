@@ -53,12 +53,6 @@ public class WordListIterator {
 	
 	public void skip() {
 		iter();
-		/*
-		if (list.is_last()) {
-			iter_noaccount_last();
-		} else {
-			iter_noaccount();
-		}*/
 	}
 	
 	private void iter_noaccount_last() {
