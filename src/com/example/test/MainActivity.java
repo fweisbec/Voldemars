@@ -2,6 +2,8 @@ package com.example.test;
 
 import java.util.ArrayList;
 
+import com.example.test.ChoiceLanguage.ChoiceLanguageButtonListener;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.text.InputType;

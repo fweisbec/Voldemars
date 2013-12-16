@@ -1,4 +1,8 @@
-package com.example.test;
+package com.example.test.ChoiceLanguage;
+
+import com.example.test.MainActivity;
+import com.example.test.Word;
+import com.example.test.Word.Lang;
 
 import android.view.View;
 import android.widget.Button;
@@ -7,7 +11,7 @@ public class ChoiceLanguageButtonListener implements View.OnClickListener {
 	private Button latvian, russian;
 	private MainActivity main;
 
-	ChoiceLanguageButtonListener(MainActivity main, Button latvian, Button russian) {
+	public ChoiceLanguageButtonListener(MainActivity main, Button latvian, Button russian) {
 		super();
 		this.main = main;
 		this.latvian = latvian;

@@ -2,7 +2,7 @@ package com.example.test;
 
 public class Word {
 	public enum Lang {LATVIAN, RUSSIAN};
-	static Lang curr_translated;
+	public static Lang curr_translated;
 	String french;
 	String english;
 	String latvian;
