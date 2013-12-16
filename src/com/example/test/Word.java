@@ -14,7 +14,7 @@ public class Word {
 		this.english = english;
 		this.latvian = latvian;
 		this.russian = russian;
-		this.stats = new WordStats(this.translation());
+		this.stats = new WordStats(this.french);
 	}
 
 	public String translation() {

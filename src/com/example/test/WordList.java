@@ -62,7 +62,7 @@ public class WordList extends ArrayList<Word> {
 			Word w;
 			
 			w = it.next();
-			if (w.translation().equals(stats.translated)) {
+			if (w.french.equals(stats.native_word)) {
 				w.stats = stats;
 				//Debug.out(stats);
 				break;

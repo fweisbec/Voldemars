@@ -3,12 +3,12 @@ package com.example.test;
 import java.io.Serializable;
 
 public class WordStats implements Serializable{
-	String translated;
+	String native_word;
 	private Integer nr_asked;
 	private Integer nr_success;
 	
-	WordStats(String translated) {
-		this.translated = translated;
+	WordStats(String native_word) {
+		this.native_word = native_word;
 		nr_asked = new Integer(0);
 		nr_success = new Integer(0);
 	}
@@ -41,6 +41,6 @@ public class WordStats implements Serializable{
 	}*/
 	
 	public String toString() {		
-		return String.format("%s asked: %d success: %d", translated, nr_asked, nr_success);
+		return String.format("%s asked: %d success: %d", native_word, nr_asked, nr_success);
 	}
 }
