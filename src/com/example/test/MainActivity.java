@@ -3,9 +3,11 @@ package com.example.test;
 import java.util.ArrayList;
 
 import com.example.test.ChoiceLanguage.ChoiceLanguageButtonListener;
+import com.example.test.Word.Lang;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.text.InputType;
 import android.view.Gravity;
 import android.view.Menu;
@@ -24,7 +26,32 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
         Settings.init();
-        ask_language();
+        Intent intent = getIntent();
+        
+        if (intent != null) {
+        	String language = intent.getStringExtra("com.example.test.ChoiceLanguage.dest_language");
+        	if (language == null) {
+        		Debug.out("No language passed to main activity!");
+        		return;
+        	}
+        	
+        	if (language.equals("latvian"))
+        		Word.curr_translated = Word.Lang.LATVIAN;
+        	else if (language.equals("latvian"))
+        		Word.curr_translated = Word.Lang.RUSSIAN;
+        	else {
+        		Debug.out(language);
+        		return;
+        	}
+        }
+        
+        setContentView(R.layout.activity_main);
+        try {
+			start_translations();
+		} catch (InterruptedException e) {
+			// TODO Bloc catch généré automatiquement
+			e.printStackTrace();
+		}
     }
 
 
@@ -42,19 +69,6 @@ public class MainActivity extends Activity {
     		list.save_stats();
     }
 
-    private void ask_language() {
-    	Button latvian, russian;
-    	ChoiceLanguageButtonListener listener;	
-
-    	setContentView(R.layout.choose_language);
-    	latvian = (Button) findViewById(R.id.latvian_button);
-    	russian = (Button) findViewById(R.id.russian_button);
-    	
-    	listener = new ChoiceLanguageButtonListener(this, latvian, russian); 
-    	latvian.setOnClickListener(listener);
-    	russian.setOnClickListener(listener);
-    }
-
     public void start_translations() throws InterruptedException {
     	EditText in_translated;
     	TextView out_native;
@@ -64,7 +78,6 @@ public class MainActivity extends Activity {
     	TranslationInputListener input_listener;
     	TranslationOutput out;
 
-    	setContentView(R.layout.activity_main);
     	/* Hack to make runOnUiThread() happy :( */
     	me = this;
     	
