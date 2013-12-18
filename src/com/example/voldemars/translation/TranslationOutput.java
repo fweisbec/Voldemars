@@ -1,4 +1,4 @@
-package com.example.test;
+package com.example.voldemars.translation;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;

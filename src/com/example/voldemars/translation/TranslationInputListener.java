@@ -1,4 +1,4 @@
-package com.example.test;
+package com.example.voldemars.translation;
 
 import java.util.Timer;
 import java.util.TimerTask;

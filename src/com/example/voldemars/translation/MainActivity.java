@@ -1,9 +1,10 @@
-package com.example.test;
+package com.example.voldemars.translation;
 
 import java.util.ArrayList;
 
-import com.example.test.ChoiceLanguage.ChoiceLanguageButtonListener;
-import com.example.test.Word.Lang;
+import com.example.voldemars.R;
+import com.example.voldemars.ChoiceLanguage.ChoiceLanguageButtonListener;
+import com.example.voldemars.translation.Word.Lang;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -29,7 +30,7 @@ public class MainActivity extends Activity {
         Intent intent = getIntent();
         
         if (intent != null) {
-        	String language = intent.getStringExtra("com.example.test.ChoiceLanguage.dest_language");
+        	String language = intent.getStringExtra("com.example.voldemars.ChoiceLanguage.dest_language");
         	if (language == null) {
         		Debug.out("No language passed to main activity!");
         		return;
@@ -37,7 +38,7 @@ public class MainActivity extends Activity {
         	
         	if (language.equals("latvian"))
         		Word.curr_translated = Word.Lang.LATVIAN;
-        	else if (language.equals("latvian"))
+        	else if (language.equals("russian"))
         		Word.curr_translated = Word.Lang.RUSSIAN;
         	else {
         		Debug.out(language);

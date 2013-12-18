@@ -1,6 +1,6 @@
-package com.example.test.ChoiceLanguage;
+package com.example.voldemars.ChoiceLanguage;
 
-import com.example.test.R;
+import com.example.voldemars.R;
 
 import android.os.Bundle;
 import android.view.Menu;

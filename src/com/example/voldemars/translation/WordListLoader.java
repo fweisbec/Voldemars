@@ -1,4 +1,4 @@
-package com.example.test;
+package com.example.voldemars.translation;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -62,7 +62,7 @@ public class WordListLoader {
 	static String remote_list = remote + "wordlist";
 	static String remote_ver = remote + "wordlist_ver";
 
-	private String local, local_list, local_ver;
+	private String local_list, local_ver;
 
 
 	private int get_local_version() {
@@ -81,16 +81,29 @@ public class WordListLoader {
 
 		return -1;
 	}
+	
+	private void mkdir_local(String filename)
+	{		
+		File file = new File(filename);
+		if (!file.exists())
+			file.mkdir();
+	}
 
 	public boolean load() throws InterruptedException {
 		int old_version, new_version;
+		String local_path, wordlist_path;
+		
+		local_path = Settings.local_path;
+		wordlist_path = Settings.wordlist_path;
 
-		local = Settings.local_path;
-		if (local == null)
+		if (local_path == null || wordlist_path == null)
 			return false;
 		
-		local_list = local + "/wordlist";
-		local_ver = local + "/wordlist_ver";
+		mkdir_local(local_path);
+		mkdir_local(wordlist_path);
+		
+		local_list = wordlist_path + "/wordlist";
+		local_ver = local_path + "/wordlist_ver";
 
 		old_version = get_local_version();
 		update_local(remote_ver, local_ver);
@@ -170,10 +183,7 @@ public class WordListLoader {
 	}
 
 	private void update_local(String url, String path) throws InterruptedException {
-		File file = new File(local);
 		HttpToFileAsync task;
-		if (!file.exists())
-			file.mkdir();
 
 		task = new HttpToFileAsync(url, path);
 		task.start();

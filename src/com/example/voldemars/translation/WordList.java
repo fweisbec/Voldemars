@@ -1,4 +1,4 @@
-package com.example.test;
+package com.example.voldemars.translation;
 
 import java.io.EOFException;
 import java.io.FileInputStream;

@@ -1,4 +1,4 @@
-package com.example.test;
+package com.example.voldemars.translation;
 
 public class Word {
 	public enum Lang {LATVIAN, RUSSIAN};

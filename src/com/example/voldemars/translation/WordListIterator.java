@@ -1,4 +1,4 @@
-package com.example.test;
+package com.example.voldemars.translation;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Timer;
