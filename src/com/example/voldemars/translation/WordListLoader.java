@@ -163,7 +163,7 @@ public class WordListLoader {
 		new_version = get_local_version();
 
 		if (old_version != new_version)
-			update_local(remote_list);
+			update_local_wordlist(remote_list);
 
 		return true;
 	}
@@ -233,11 +233,8 @@ public class WordListLoader {
 
 		return list;
 	}
-
-	private void update_local_ver(String url, String path) throws InterruptedException {
-		HttpToFileAsync task;
-
-		task = new HttpToFileAsync(url, path);
+	
+	private void update_local(AbstractHttpToFileAsync task) throws InterruptedException {
 		task.start();
 
 		synchronized (task) {
@@ -246,15 +243,17 @@ public class WordListLoader {
 		}
 	}
 
-	private void update_local(String url) throws InterruptedException {
+	private void update_local_ver(String url, String path) throws InterruptedException {
+		HttpToFileAsync task;
+
+		task = new HttpToFileAsync(url, path);
+		update_local(task);
+	}
+
+	private void update_local_wordlist(String url) throws InterruptedException {
 		ZipHttpToFileAsync task;
 
 		task = new ZipHttpToFileAsync(url);
-		task.start();
-
-		synchronized (task) {
-			while (!task.completed)
-				task.wait();
-		}
+		update_local(task);
 	}
 }
