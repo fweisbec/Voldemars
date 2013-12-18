@@ -13,20 +13,24 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 import android.os.Environment;
 
 
-class HttpToFileAsync extends Thread {
-	private String remote, local;
-	volatile boolean completed;
+abstract class AbstractHttpToFileAsync extends Thread {
+	protected String remote;
+	protected volatile boolean completed;
 
-	HttpToFileAsync(String url, String file) {
+	AbstractHttpToFileAsync(String url) {
 		super();
 		this.remote = url;
-		this.local = file;
 	}
-    public void run() {
+
+	protected abstract void record_file(InputStream input) throws Exception;
+
+	public void run() {
     	/*
     	 * Base on example shown at http://stackoverflow.com/questions/3028306/download-a-file-with-android-and-showing-the-progress-in-a-progressdialog
     	 */
@@ -35,20 +39,13 @@ class HttpToFileAsync extends Thread {
     		URLConnection connection = url.openConnection();
             connection.connect();
 
-            InputStream input = new BufferedInputStream(url.openStream());
-            OutputStream output = new FileOutputStream(local);
-
-            byte data[] = new byte[1024];
-            int count;
-            while ((count = input.read(data)) != -1)
-            	output.write(data, 0, count);
-
-            output.flush();
-            output.close();
-            input.close();
+            BufferedInputStream binput = new BufferedInputStream(url.openStream());
+            record_file(binput);
+            binput.close();
         } catch (Exception e) {
         	//Just don't care
         }
+
         synchronized (this) {
         	completed = true;
            	this.notify();
@@ -56,10 +53,65 @@ class HttpToFileAsync extends Thread {
     }
 }
 
+class HttpToFileAsync extends AbstractHttpToFileAsync {
+	private String remote, local;
+
+	HttpToFileAsync(String url, String path) {
+		super(url);
+		this.local = path;
+	}
+
+	protected void record_file(InputStream input) throws Exception
+	{
+		OutputStream output = new FileOutputStream(local);
+
+		byte data[] = new byte[1024];
+		int count;
+
+		while ((count = input.read(data)) != -1)
+			output.write(data, 0, count);
+
+		output.flush();
+		output.close();
+	}
+}
+
+class ZipHttpToFileAsync extends AbstractHttpToFileAsync  {
+	ZipHttpToFileAsync(String url) {
+		super(url);
+	}
+
+	private void write_zentry(ZipInputStream zis, ZipEntry ze) throws Exception
+	{
+		String filename = Settings.wordlist_path + "/" + ze.getName();
+		OutputStream output = new FileOutputStream(filename);
+
+		byte data[] = new byte[1024];
+		int count;
+
+		while ((count = zis.read(data)) != -1)
+			output.write(data, 0, count);
+
+		output.flush();
+		output.close();
+	}
+
+	protected void record_file(InputStream input) throws Exception
+	{
+		ZipInputStream zinput = new ZipInputStream(input);
+		ZipEntry ze;
+
+		while ((ze = zinput.getNextEntry()) != null)
+			write_zentry(zinput, ze);
+
+		zinput.close();
+	}
+}
+
 
 public class WordListLoader {
 	static String remote = "https://raw.github.com/fweisbec/Voldemars/master/";
-	static String remote_list = remote + "wordlist";
+	static String remote_list = remote + "wordlist.zip";
 	static String remote_ver = remote + "wordlist_ver";
 
 	private String local_list, local_ver;
@@ -106,12 +158,12 @@ public class WordListLoader {
 		local_ver = local_path + "/wordlist_ver";
 
 		old_version = get_local_version();
-		update_local(remote_ver, local_ver);
+		update_local_ver(remote_ver, local_ver);
 
 		new_version = get_local_version();
 
 		if (old_version != new_version)
-			update_local(remote_list, local_list);
+			update_local(remote_list);
 
 		return true;
 	}
@@ -182,10 +234,22 @@ public class WordListLoader {
 		return list;
 	}
 
-	private void update_local(String url, String path) throws InterruptedException {
+	private void update_local_ver(String url, String path) throws InterruptedException {
 		HttpToFileAsync task;
 
 		task = new HttpToFileAsync(url, path);
+		task.start();
+
+		synchronized (task) {
+			while (!task.completed)
+				task.wait();
+		}
+	}
+
+	private void update_local(String url) throws InterruptedException {
+		ZipHttpToFileAsync task;
+
+		task = new ZipHttpToFileAsync(url);
 		task.start();
 
 		synchronized (task) {
