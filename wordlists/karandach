@@ -1,0 +1,76 @@
+# Karandach (Annie Tchernychev) page 6
+
+n;autobus;*;*;автобус
+n;mitraillette;*;*;автомат
+n;auteur;author;*;автор
+n;autoroute;motorway;*;автострада
+n;adresse;address;*;адрес
+n;acteur;actor;*;актёр
+n;ananas;*;*;ананас
+n;antenne;*;*;антенна
+
+# Karandach (Annie Tchernychev) page 8
+
+n;orange;orange;*;апельсин
+n;pharmacie;*;*;аптека
+n;pastèque;*;*;арбуз
+n;armée;army;*;армия
+n;archéologue;*;*;археолог
+n;architecte;*;*;архитектор
+n;aéroport;airport;*;аэропорт
+n;papillon;butterfly;*;бабочка
+
+# Karandach (Annie Tchernychev) page 10
+
+#n;grand mère;grandmother;*;бабушка
+n;bagages;*;*;багаж
+n;balcon;*;*;балкон
+n;banane;*;*;банан
+n;banque;bank;*;банк
+n;bocal;*;*;банка
+n;banquier;*;*;банкир
+n;distributeur de billet;ATM;*;банкомат
+
+# Karandach (Annie Tchernychev) page 12
+
+n;bar;bar;*;бар
+n;basketball;basketball;*;баскетбол
+n;piscine;swimming pool;*;бассейн
+n;tour;tower;*;башня
+n;ecureuil;squirrel;*;белка
+n;linge;*;*;бельё
+n;essence;*;*;бензин
+n;côte;coast;*;берег
+
+# Karandach (Annie Tchernychev) page 14
+
+n;bouleau;*;*;берёза
+n;bibliothèque;library;*;библиотека
+n;homme d'affaires;*;*;бизнесмен
+n;ticket;ticket;*;билет
+n;crêpe;*;*;блин
+n;maladie;disease;*;болезнь
+n;hôpital;hospital;*;больница
+#n;frère;brother;brālis;брат
+
+# Karandach (Annie Tchernychev) page 16
+
+n;pantalon;pants;*;брюки
+n;lettre;letter;*;буква
+n;boulangerie;bakery;*;булочная
+n;boulevard;*;*;бульвар
+n;papier;paper;*;бумага
+n;portefeuille;*;*;портфель
+n;sandwich;sandwich;*;бутерброд
+n;bouteille;bottle;*;бутылка
+
+# Karandach (Annie Tchernychev) page 18
+
+n;wagon;*;*;вагон
+n;vase;*;*;ваза
+n;monnaie;*;*;валюта
+n;baignoire;bath;*;ванна
+n;salle de bain;bathroom;*;ванная
+n;confiture;marmelade;*;варенье
+n;vélo;bike;*;велосипед
+n;hélicoptère;*;*;вертолёт
