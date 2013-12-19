@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import com.example.voldemars.R;
 import com.example.voldemars.ChoiceLanguage.ChoiceLanguageButtonListener;
+import com.example.voldemars.settings.IntentArgument;
+import com.example.voldemars.settings.Settings;
 import com.example.voldemars.translation.Word.Lang;
 
 import android.os.Bundle;
@@ -21,30 +23,38 @@ public class MainActivity extends Activity {
 
 	static MainActivity me;
 	WordList list;
+	IntentArgument argument;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_main);
-        Settings.init();
-        Intent intent = getIntent();
-        
-        if (intent != null) {
-        	String language = intent.getStringExtra("com.example.voldemars.ChoiceLanguage.dest_language");
-        	if (language == null) {
-        		Debug.out("No language passed to main activity!");
-        		return;
-        	}
-        	
-        	if (language.equals("latvian"))
-        		Word.curr_translated = Word.Lang.LATVIAN;
-        	else if (language.equals("russian"))
-        		Word.curr_translated = Word.Lang.RUSSIAN;
-        	else {
-        		Debug.out(language);
-        		return;
-        	}
+
+        if (!Settings.init()) {
+        	Debug.out("Can't load settings");
+        	return;
         }
+        
+        argument = IntentArgument.getActivityIntentArgument(this);
+        if (argument == null) {
+        	Debug.out("Missing intent argument");
+        	return;
+        }
+
+        //Debug.out(arg);
+        String language = argument.get_dest_lang();
+       	if (language == null) {
+       		Debug.out("No language passed to main activity!");
+       		return;
+       	}
+        	
+       	if (language.equals("latvian"))
+       		Word.curr_translated = Word.Lang.LATVIAN;
+       	else if (language.equals("russian"))
+       		Word.curr_translated = Word.Lang.RUSSIAN;
+       	else {
+       		Debug.out(language);
+       		return;
+       	}
         
         setContentView(R.layout.activity_main);
         try {
@@ -87,7 +97,7 @@ public class MainActivity extends Activity {
     	if (!loadlist.load())
     		System.exit(-1);
 
-    	list = loadlist.getWordListAll();
+    	list = loadlist.getWordListAll(argument.get_wordlist_filenames());
     	if (list == null || list.size() == 0)
     		System.exit(-1);
     	

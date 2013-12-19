@@ -15,8 +15,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Scanner;
+import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
+
+import com.example.voldemars.settings.Settings;
 
 import android.os.Environment;
 
@@ -231,7 +234,7 @@ public class WordListLoader {
 		}
 	}
 	
-	public WordList getWordListAll() {
+	public WordList getWordListAll(Set<String> filenames) {
 		WordList list = new WordList();
 		File dir = new File(Settings.wordlist_path);
 		File[] files = dir.listFiles();
@@ -243,7 +246,8 @@ public class WordListLoader {
 
 		for (Iterator<File> i = file_list.iterator(); i.hasNext(); ) {
 			File file = i.next();
-			getWordList(list, file);
+			if (filenames.contains(file.getName()))
+				getWordList(list, file);
 		}
 
 		return list;

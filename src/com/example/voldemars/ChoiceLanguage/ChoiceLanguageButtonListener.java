@@ -1,5 +1,7 @@
 package com.example.voldemars.ChoiceLanguage;
 
+import com.example.voldemars.select_wordlist.SelectWordlistActivity;
+import com.example.voldemars.settings.IntentArgument;
 import com.example.voldemars.translation.MainActivity;
 import com.example.voldemars.translation.Word;
 import com.example.voldemars.translation.Word.Lang;
@@ -7,6 +9,7 @@ import com.example.voldemars.translation.Word.Lang;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 
 public class ChoiceLanguageButtonListener implements View.OnClickListener {
 	private Button latvian, russian;
@@ -28,8 +31,11 @@ public class ChoiceLanguageButtonListener implements View.OnClickListener {
 			language = "russian";
 
 		//http://www.tutos-android.com/changement-vues-passage-donnees-android
-		Intent intent = new Intent(activity, MainActivity.class);
-		intent.putExtra("com.example.voldemars.ChoiceLanguage.dest_language", language);
+		Intent intent = new Intent(activity, SelectWordlistActivity.class);
+		IntentArgument arg = new IntentArgument();
+		
+		arg.set_dest_lang(language);
+		intent.putExtra(IntentArgument.key, arg);
 		activity.startActivity(intent);
 	}
 }

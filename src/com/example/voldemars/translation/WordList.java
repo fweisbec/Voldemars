@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
 
+import com.example.voldemars.settings.Settings;
+
 public class WordList extends ArrayList<Word> {
 	private int read_idx;
 	private ArrayList<WordStats> orphaned_stats;
@@ -72,7 +74,7 @@ public class WordList extends ArrayList<Word> {
 	}
 
 	private boolean assign_stat(WordStats stats) {
-		// Debug.out(stats);
+		 //Debug.out(stats);
 		for (Iterator<Word> it = this.iterator(); it.hasNext(); ) {
 			Word w;
 
