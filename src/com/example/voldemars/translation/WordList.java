@@ -14,7 +14,15 @@ import android.os.Environment;
 
 public class WordList extends ArrayList<Word> {
 	private int read_idx;
+	private ArrayList<WordStats> orphaned_stats;
 	
+	WordList() {
+		orphaned_stats = new ArrayList<WordStats>();
+	}
+	
+	WordList(WordList w) {
+		orphaned_stats = w.orphaned_stats;
+	}
 	Word curr() {
 		return get(read_idx);
 	}
@@ -42,12 +50,20 @@ public class WordList extends ArrayList<Word> {
 			fp = new FileOutputStream(path);
 			fo = new ObjectOutputStream(fp);
 			
+			/* Save stats for wordlist */
 			for (Iterator<Word> it = this.iterator(); it.hasNext(); ) {
 				Word w;
 				
 				w = it.next();
 				fo.writeObject(w.stats);
 			}
+			
+			/* Save stats that weren't used by wordlist */
+			for (Iterator<WordStats> it = orphaned_stats.iterator(); it.hasNext(); ) {				
+				 WordStats stats = it.next();
+				fo.writeObject(stats);
+			}
+			
 			fo.close();
 			
 		} catch (Exception e) {
@@ -57,17 +73,18 @@ public class WordList extends ArrayList<Word> {
 		return true;
 	}
 	
-	private void assign_stat(WordStats stats) {
+	private boolean assign_stat(WordStats stats) {
+		//Debug.out(stats);
 		for (Iterator<Word> it = this.iterator(); it.hasNext(); ) {
 			Word w;
 			
 			w = it.next();
 			if (w.french.equals(stats.native_word)) {
 				w.stats = stats;
-				//Debug.out(stats);
-				break;
-			}				
+				return true;
+			}
 		}
+		return false;
 	}
 	
 	static private String get_stats_path() {
@@ -86,6 +103,7 @@ public class WordList extends ArrayList<Word> {
 	
 	boolean load_rates() {		
 		String path = get_stats_path();
+		
 		try {
 			FileInputStream fp;
 			ObjectInputStream fo;
@@ -97,7 +115,8 @@ public class WordList extends ArrayList<Word> {
 			for (;;) {
 				try {
 					stats = (WordStats)fo.readObject();
-					assign_stat(stats);
+					if (!assign_stat(stats))
+						orphaned_stats.add(stats);
 				} catch (EOFException e) {
 					break;
 				}
@@ -182,7 +201,7 @@ public class WordList extends ArrayList<Word> {
 		default_weight = total;
 		total += default_weight * never_asked;
 		
-		sorted = new WordList();
+		sorted = new WordList(this);
 		
 		while (!this.isEmpty()) {
 			float weight;
