@@ -50,6 +50,18 @@ public class SelectWordlistActivity extends ListActivity {
 		
 		return filenames.toArray(new String[filenames.size()]);
 	}
+	
+	private void load_wordlist() {
+		WordListLoader loader;
+		
+		loader = new WordListLoader();
+		try {
+			loader.load();
+		}
+		catch (Exception E) {
+			Debug.out(E.getStackTrace());
+		}
+	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +69,7 @@ public class SelectWordlistActivity extends ListActivity {
 		setContentView(R.layout.activity_select_wordlist);
 		
 		Settings.init();
+		load_wordlist();
 		String[] wordlists = get_wordlist_array();
 		if (wordlists == null) {
 			Debug.out("No wordlist file");

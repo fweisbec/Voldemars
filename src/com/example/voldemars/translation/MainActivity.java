@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.example.voldemars.R;
 import com.example.voldemars.ChoiceLanguage.ChoiceLanguageButtonListener;
+import com.example.voldemars.select_wordlist.WordListLoader;
 import com.example.voldemars.settings.IntentArgument;
 import com.example.voldemars.settings.Settings;
 import com.example.voldemars.translation.Word.Lang;
@@ -93,11 +94,8 @@ public class MainActivity extends Activity {
     	me = this;
     	
     	/* Word list update, parse and load */
-    	WordListLoader loadlist = new WordListLoader();
-    	if (!loadlist.load())
-    		System.exit(-1);
-
-    	list = loadlist.getWordListAll(argument.get_wordlist_filenames());
+    	WordListReader readlist = new WordListReader();
+    	list = readlist.getWordListAll(argument.get_wordlist_filenames());
     	if (list == null || list.size() == 0)
     		System.exit(-1);
     	
