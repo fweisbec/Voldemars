@@ -12,6 +12,8 @@ import java.io.OutputStream;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
 import java.util.Scanner;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
@@ -154,7 +156,6 @@ public class WordListLoader {
 		mkdir_local(local_path);
 		mkdir_local(wordlist_path);
 		
-		local_list = wordlist_path + "/wordlist";
 		local_ver = local_path + "/wordlist_ver";
 
 		old_version = get_local_version();
@@ -214,11 +215,9 @@ public class WordListLoader {
 	/*
 	 * Inspired by http://www.mkyong.com/java/how-to-read-and-parse-csv-file-in-java/
 	 */
-	public WordList getWordList() {
-		WordList list = new WordList();
-		
+	public void getWordList(WordList list, File file) {		
 		try {
-			FileReader fr = new FileReader(local_list);
+			FileReader fr = new FileReader(file);
 			BufferedReader br = new BufferedReader(fr);
 			String line;
 
@@ -230,10 +229,26 @@ public class WordListLoader {
 		  catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public WordList getWordListAll() {
+		WordList list = new WordList();
+		File dir = new File(Settings.wordlist_path);
+		File[] files = dir.listFiles();
+		
+		if (files == null)
+			return list;
+
+		ArrayList<File> file_list = new ArrayList<File>(Arrays.asList(files));
+
+		for (Iterator<File> i = file_list.iterator(); i.hasNext(); ) {
+			File file = i.next();
+			getWordList(list, file);
+		}
 
 		return list;
 	}
-	
+
 	private void update_local(AbstractHttpToFileAsync task) throws InterruptedException {
 		task.start();
 

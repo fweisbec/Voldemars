@@ -87,7 +87,7 @@ public class MainActivity extends Activity {
     	if (!loadlist.load())
     		System.exit(-1);
 
-    	list = loadlist.getWordList();
+    	list = loadlist.getWordListAll();
     	if (list == null || list.size() == 0)
     		System.exit(-1);
     	
