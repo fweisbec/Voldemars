@@ -31,6 +31,7 @@ public class SelectWordlistButtonListener implements View.OnClickListener {
 				return;
 			}
 			
+			arg.reset_wordlist_filenames();
 			SparseBooleanArray sba = listview.getCheckedItemPositions();
 			
 			for (int i = 0; i < sba.size(); i++) {

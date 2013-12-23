@@ -34,6 +34,10 @@ public class IntentArgument implements Serializable{
 	public void add_wordlist_filename(String filename) {
 		wordlists.add(filename);
 	}
+
+	public void reset_wordlist_filenames() {
+		wordlists.clear();
+	}
 	
 	public Set<String> get_wordlist_filenames() {
 		return Collections.unmodifiableSet(wordlists);
