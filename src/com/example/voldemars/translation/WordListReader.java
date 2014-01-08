@@ -91,17 +91,10 @@ public class WordListReader {
 	public WordList getWordListAll(Set<String> filenames) {
 		WordList list = new WordList();
 		File dir = new File(Settings.wordlist_path);
-		File[] files = dir.listFiles();
-		
-		if (files == null)
-			return list;
 
-		ArrayList<File> file_list = new ArrayList<File>(Arrays.asList(files));
-
-		for (Iterator<File> i = file_list.iterator(); i.hasNext(); ) {
-			File file = i.next();
-			if (filenames.contains(file.getName()))
-				getWordList(list, file);
+		for (String filename : filenames) {
+			File file = new File(dir, filename);
+			getWordList(list, file);
 		}
 
 		return list;
