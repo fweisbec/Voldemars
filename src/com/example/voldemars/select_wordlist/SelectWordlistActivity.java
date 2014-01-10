@@ -33,24 +33,6 @@ import android.os.Build;
 public class SelectWordlistActivity extends ListActivity {
 	private ListView listview;
 	
-	private String[] get_wordlist_array() {
-		File dir = new File(Settings.wordlist_path);
-		File[] files = dir.listFiles();
-		
-		if (files == null)
-			return null;
-
-		ArrayList<String> filenames = new ArrayList<String>();
-
-		for (File file : files)
-			filenames.add(file.getName());
-	
-		if (filenames.isEmpty())
-			return null;
-		
-		return filenames.toArray(new String[filenames.size()]);
-	}
-	
 	private void load_wordlist() {
 		WordListLoader loader;
 		
@@ -70,11 +52,6 @@ public class SelectWordlistActivity extends ListActivity {
 		
 		Settings.init();
 		load_wordlist();
-		String[] wordlists = get_wordlist_array();
-		if (wordlists == null) {
-			Debug.out("No wordlist file");
-			return;
-		}
 		
        	Button button = (Button) findViewById(R.id.wordlist_button);
        	SelectWordlistButtonListener listener = new SelectWordlistButtonListener(this); 
@@ -82,7 +59,7 @@ public class SelectWordlistActivity extends ListActivity {
     	
     	listview = getListView();
     	listview.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-        listview.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_multiple_choice, wordlists));
+        listview.setAdapter(new ExplorerAdapter(this));
 	}
 
 	@Override
