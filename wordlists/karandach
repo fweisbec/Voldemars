@@ -108,3 +108,24 @@ n;journal;newspaper;*;газета
 n;épicerie;*;*;гастроном
 n;géographie;*;*;география
 
+# Karandach (Annie Tchernychev) page 26
+
+n;guide;*;*;гид
+n;gymnastique;*;*;гимнастика
+n;hippopotam;*;*;гиппопотам
+n;guitare;guitar;*;гитара
+n;oeil;eye;*;глаз
+n;année;year;*;год
+n;tête;head;*;голова
+n;montagne;mountain;*;гора
+
+# Karandach (Annie Tchernychev) page 28
+
+n;horizon;*;*;горизонт
+n;ville;city;*;город
+n;hotel;hotel;*;гостиница
+n;thermomètre;*;*;градусник
+n;frontière;border;*;граница   
+n;pamplemousse;*;*;грейпфрут
+n;champignon;mushroom;*;гриб
+n;groupe;group;*;группа
