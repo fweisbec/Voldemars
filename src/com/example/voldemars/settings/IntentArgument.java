@@ -31,15 +31,11 @@ public class IntentArgument implements Serializable{
 		return (IntentArgument)intent.getSerializableExtra(key);
 	}
 	
-	public void add_wordlist_filename(String filename) {
-		wordlists.add(filename);
-	}
-
-	public void reset_wordlist_filenames() {
-		wordlists.clear();
+	public void add_wordlist_files(HashSet<String> wordlists) {
+		this.wordlists = wordlists;
 	}
 	
-	public Set<String> get_wordlist_filenames() {
+	public Set<String> get_wordlist_files() {
 		return Collections.unmodifiableSet(wordlists);
 	}
 	

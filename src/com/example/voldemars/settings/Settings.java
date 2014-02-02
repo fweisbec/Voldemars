@@ -18,7 +18,7 @@ public class Settings {
 
 		local_path = Environment.getExternalStorageDirectory().getAbsolutePath();
 		local_path += "/Voldemars";
-		wordlist_path = local_path + "/wordlists";
+		wordlist_path = local_path + "/wordlists/";
 		
 		return true;
 	}

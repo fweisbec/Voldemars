@@ -1,9 +1,14 @@
 package com.example.voldemars.select_wordlist;
 
 import java.io.File;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Set;
 
 import com.example.voldemars.R;
 import com.example.voldemars.ChoiceLanguage.ChoiceLanguageButtonListener;
@@ -17,6 +22,7 @@ import com.example.voldemars.translation.WordList;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.ListActivity;
+import android.util.AttributeSet;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,11 +33,14 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.support.v4.app.NavUtils;
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 
 public class SelectWordlistActivity extends ListActivity {
 	private ListView listview;
+	private ExplorerAdapter adapter;
+	public HashSet<String> files = new HashSet<String>();
 	
 	private void load_wordlist() {
 		WordListLoader loader;
@@ -44,12 +53,50 @@ public class SelectWordlistActivity extends ListActivity {
 			Debug.out(E.getStackTrace());
 		}
 	}
+	
+	private void setPathAdapter(ExplorerAdapter adapter) throws URISyntaxException, IOException {
+		this.adapter = adapter; 
+		listview.setAdapter(this.adapter);
+
+		/* Recheck selected */
+		for (int i = 0; i < listview.getCount(); i++) {
+			WordListFile item = adapter.getItem(i);
+			if (!item.isDirectory()) {
+				if (files.contains(item.getWordListPath())) {
+					// We need to wait for adapter.getView() before setting background
+					listview.setItemChecked(i, true);
+				}
+			}	
+		}
+	}
+	
+	public void update_dir_list() {
+		ListView listview = getListView();
+		for (int i = 0; i < listview.getCount(); i++) {
+			WordListFile item = adapter.getItem(i);
+			if (!item.isDirectory()) {
+				String path;
+				try {
+					path = item.getWordListPath();
+				} catch (IOException e) {
+					// TODO Bloc catch généré automatiquement
+					e.printStackTrace();
+					return;
+				}
+				if (listview.isItemChecked(i))
+					files.add(path);
+				else
+					files.remove(path);
+				Debug.out(files);
+			}
+		}
+	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_select_wordlist);
-		
+
 		Settings.init();
 		load_wordlist();
 		
@@ -59,7 +106,12 @@ public class SelectWordlistActivity extends ListActivity {
     	
     	listview = getListView();
     	listview.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-        listview.setAdapter(new ExplorerAdapter(this));
+        try {
+			setPathAdapter(new ExplorerAdapter(this));
+		} catch (Exception e) {
+			// TODO Bloc catch généré automatiquement
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -84,5 +136,46 @@ public class SelectWordlistActivity extends ListActivity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	private boolean cwd(String path) {
+		if (!this.adapter.pathAllowed(path))
+			return false;
+
+		ExplorerAdapter adapter;
+		try {
+			adapter = new ExplorerAdapter(this.adapter, path);
+			setPathAdapter(adapter);
+		} catch (Exception e) {
+			// TODO Bloc catch généré automatiquement
+			e.printStackTrace();
+			return false;
+		}
+		
+		return true;
+	}
+	
+	protected void onListItemClick (ListView l, View rowView, int position, long id) {
+		if (getListView().isItemChecked(position))
+			rowView.setBackgroundResource(android.R.color.holo_blue_dark);
+		else
+			rowView.setBackgroundResource(android.R.color.white);
+	
+		WordListFile item = adapter.getItem(position);
+		if (!item.isDirectory()) {
+			update_dir_list();
+		} else {
+			try {
+				cwd(item.getWordListPath());
+			} catch (IOException e) {
+				// TODO Bloc catch généré automatiquement
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public void onBackPressed () {
+		if (!cwd("../"))
+			super.onBackPressed();
 	}
 }

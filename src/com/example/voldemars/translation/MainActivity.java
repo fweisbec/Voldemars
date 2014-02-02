@@ -95,7 +95,7 @@ public class MainActivity extends Activity {
     	
     	/* Word list update, parse and load */
     	WordListReader readlist = new WordListReader();
-    	list = readlist.getWordListAll(argument.get_wordlist_filenames());
+    	list = readlist.getWordListAll(argument.get_wordlist_files());
     	if (list == null || list.size() == 0)
     		System.exit(-1);
     	

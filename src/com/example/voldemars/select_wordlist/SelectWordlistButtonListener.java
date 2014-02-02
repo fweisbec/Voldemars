@@ -22,8 +22,6 @@ public class SelectWordlistButtonListener implements View.OnClickListener {
 
 		@Override
 		public void onClick(View arg0) {
-			ListView listview = activity.getListView();
-			
 			/* Get passed settings from old intent */
 			IntentArgument arg = IntentArgument.getActivityIntentArgument(activity);
 			if (arg == null) {
@@ -31,16 +29,7 @@ public class SelectWordlistButtonListener implements View.OnClickListener {
 				return;
 			}
 			
-			arg.reset_wordlist_filenames();
-			SparseBooleanArray sba = listview.getCheckedItemPositions();
-			
-			for (int i = 0; i < sba.size(); i++) {
-				if (sba.valueAt(i)) {
-					String filename = (String)listview.getItemAtPosition(sba.keyAt(i));
-					arg.add_wordlist_filename(filename);
-					//Debug.out((String)listview.getItemAtPosition(sba.keyAt(i)));
-				}
-			}
+			arg.add_wordlist_files(activity.files);
 
 			/* Launch main translation */
 			Intent intent = new Intent(activity, MainActivity.class);
