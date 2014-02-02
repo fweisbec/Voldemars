@@ -22,42 +22,42 @@ public class IntentArgument implements Serializable{
 	}
 	public static IntentArgument getActivityIntentArgument(Activity activity) {
 		Intent intent = activity.getIntent();
-		
+
 		if (intent == null) {
 			Debug.out("Intent null");
 			return null;
 		}
-		
+
 		return (IntentArgument)intent.getSerializableExtra(key);
 	}
-	
+
 	public void add_wordlist_files(HashSet<String> wordlists) {
 		this.wordlists = wordlists;
 	}
-	
+
 	public Set<String> get_wordlist_files() {
 		return Collections.unmodifiableSet(wordlists);
 	}
-	
+
 	public String get_dest_lang() {
 		return this.dest_lang;
 	}
-	
+
 	public void set_dest_lang(String dest_lang) {
 		this.dest_lang = dest_lang;
 	}
-	
+
 	public String toString() {
-		StringBuffer buf = new StringBuffer(); 
-		
+		StringBuffer buf = new StringBuffer();
+
 		buf.append("Dest lang: ");
 		if (this.dest_lang != null)
 			buf.append(this.dest_lang);
-		
+
 		buf.append(" Wordlist files: ");
 		for (String wordlist : wordlists)
 			buf.append(String.format("%s ", wordlist));
-		
+
 		return buf.toString();
 	}
 }

@@ -33,7 +33,7 @@ public class ChoiceLanguageButtonListener implements View.OnClickListener {
 		//http://www.tutos-android.com/changement-vues-passage-donnees-android
 		Intent intent = new Intent(activity, SelectWordlistActivity.class);
 		IntentArgument arg = new IntentArgument();
-		
+
 		arg.set_dest_lang(language);
 		intent.putExtra(IntentArgument.key, arg);
 		activity.startActivity(intent);

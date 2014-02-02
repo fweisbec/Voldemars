@@ -18,18 +18,18 @@ class IteratorTimer extends TimerTask {
 	public void run() {
 		MainActivity.me.runOnUiThread(new Runnable() {
 
-            @Override
-            public void run() {
-            	if (success) {
-            		if (account)
-            			word_iter.iter();
-            		else
-            			word_iter.iter_noaccount();
-            	}
-            	else
-            		word_iter.fail();
-            }
-        });
+			@Override
+			public void run() {
+				if (success) {
+					if (account)
+						word_iter.iter();
+					else
+						word_iter.iter_noaccount();
+				}
+				else
+					word_iter.fail();
+			}
+		});
 	}
 }
 
@@ -44,22 +44,22 @@ public class WordListIterator {
 		this.out = out;
 		timer = new Timer();
 	}
-	
+
 	public void init(WordList list) {
 		this.list = list;
 		out.set_next(list.curr().french);
 		curr_failed = false;
 	}
-	
+
 	public void skip() {
 		iter();
 	}
-	
+
 	private void iter_noaccount_last() {
 		last();
 		iter_async(true, false);
 	}
-	
+
 	protected void iter() {
 		nr_asked++;
 		if (!curr_failed) {
@@ -73,27 +73,27 @@ public class WordListIterator {
 		else
 			iter_noaccount();
 	}
-	
+
 	protected void fail() {
 		curr_failed = true;
 		out.reset_translation();
 	}
-	
+
 	public void giveup() {
 		curr_failed = true;
 		out.overwrite_translation(curr_translation());
 	}
-	
-	void input(String s) {		
-       	if (s.equals(curr_translation())) {
-        	out.translation_ack();
-        	iter_async(true, true);
-       	} else {
-       		out.translation_nack();
-       		iter_async(false, false);
-       	}
+
+	void input(String s) {
+		if (s.equals(curr_translation())) {
+			out.translation_ack();
+			iter_async(true, true);
+		} else {
+			out.translation_nack();
+			iter_async(false, false);
+		}
 	}
-	
+
 	protected void iter_noaccount() {
 		if (list.is_last()) {
 			nr_asked = 0;
@@ -102,16 +102,16 @@ public class WordListIterator {
 		out.set_next(list.next().french);
 		curr_failed = false;
 	}
-	
+
 	private void last() {
 		out.show_mark(nr_success, nr_asked);
 	}
-	
+
 	private void iter_async(boolean success, boolean account) {
 		IteratorTimer iter_timer = new IteratorTimer(this, success, account);
-    	timer.schedule(iter_timer, 1000);
+		timer.schedule(iter_timer, 1000);
 	}
-	
+
 	public String curr_translation() {
 		return list.curr().translation();
 	}

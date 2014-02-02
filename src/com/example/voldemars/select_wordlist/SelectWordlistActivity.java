@@ -41,10 +41,10 @@ public class SelectWordlistActivity extends ListActivity {
 	private ListView listview;
 	private ExplorerAdapter adapter;
 	public HashSet<String> files = new HashSet<String>();
-	
+
 	private void load_wordlist() {
 		WordListLoader loader;
-		
+
 		loader = new WordListLoader();
 		try {
 			loader.load();
@@ -53,9 +53,9 @@ public class SelectWordlistActivity extends ListActivity {
 			Debug.out(E.getStackTrace());
 		}
 	}
-	
+
 	private void setPathAdapter(ExplorerAdapter adapter) throws URISyntaxException, IOException {
-		this.adapter = adapter; 
+		this.adapter = adapter;
 		listview.setAdapter(this.adapter);
 
 		/* Recheck selected */
@@ -66,10 +66,10 @@ public class SelectWordlistActivity extends ListActivity {
 					// We need to wait for adapter.getView() before setting background
 					listview.setItemChecked(i, true);
 				}
-			}	
+			}
 		}
 	}
-	
+
 	public void update_dir_list() {
 		ListView listview = getListView();
 		for (int i = 0; i < listview.getCount(); i++) {
@@ -99,14 +99,14 @@ public class SelectWordlistActivity extends ListActivity {
 
 		Settings.init();
 		load_wordlist();
-		
-       	Button button = (Button) findViewById(R.id.wordlist_button);
-       	SelectWordlistButtonListener listener = new SelectWordlistButtonListener(this); 
-    	button.setOnClickListener(listener);
-    	
-    	listview = getListView();
-    	listview.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-        try {
+
+		Button button = (Button) findViewById(R.id.wordlist_button);
+		SelectWordlistButtonListener listener = new SelectWordlistButtonListener(this);
+		button.setOnClickListener(listener);
+
+		listview = getListView();
+		listview.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+		try {
 			setPathAdapter(new ExplorerAdapter(this));
 		} catch (Exception e) {
 			// TODO Bloc catch généré automatiquement
@@ -137,7 +137,7 @@ public class SelectWordlistActivity extends ListActivity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	
+
 	private boolean cwd(String path) {
 		if (!this.adapter.pathAllowed(path))
 			return false;
@@ -151,16 +151,16 @@ public class SelectWordlistActivity extends ListActivity {
 			e.printStackTrace();
 			return false;
 		}
-		
+
 		return true;
 	}
-	
+
 	protected void onListItemClick (ListView l, View rowView, int position, long id) {
 		if (getListView().isItemChecked(position))
 			rowView.setBackgroundResource(android.R.color.holo_blue_dark);
 		else
 			rowView.setBackgroundResource(android.R.color.white);
-	
+
 		WordListFile item = adapter.getItem(position);
 		if (!item.isDirectory()) {
 			update_dir_list();
@@ -173,7 +173,7 @@ public class SelectWordlistActivity extends ListActivity {
 			}
 		}
 	}
-	
+
 	public void onBackPressed () {
 		if (!cwd("../"))
 			super.onBackPressed();

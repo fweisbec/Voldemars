@@ -7,7 +7,7 @@ import android.os.Environment;
 public class Settings {
 	public static String local_path;
 	public static String wordlist_path;
-	
+
 	public static boolean init() {
 		String state = Environment.getExternalStorageState();
 
@@ -19,7 +19,7 @@ public class Settings {
 		local_path = Environment.getExternalStorageDirectory().getAbsolutePath();
 		local_path += "/Voldemars";
 		wordlist_path = local_path + "/wordlists/";
-		
+
 		return true;
 	}
 }

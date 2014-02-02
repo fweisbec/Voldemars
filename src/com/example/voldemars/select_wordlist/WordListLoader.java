@@ -27,26 +27,26 @@ abstract class AbstractHttpToFileAsync extends Thread {
 	protected abstract void record_file(InputStream input) throws Exception;
 
 	public void run() {
-    	/*
-    	 * Base on example shown at http://stackoverflow.com/questions/3028306/download-a-file-with-android-and-showing-the-progress-in-a-progressdialog
-    	 */
-    	try {
-    		URL url = new URL(remote);
-    		URLConnection connection = url.openConnection();
-            connection.connect();
+		/*
+		 * Base on example shown at http://stackoverflow.com/questions/3028306/download-a-file-with-android-and-showing-the-progress-in-a-progressdialog
+		 */
+		try {
+			URL url = new URL(remote);
+			URLConnection connection = url.openConnection();
+			connection.connect();
 
-            BufferedInputStream binput = new BufferedInputStream(url.openStream());
-            record_file(binput);
-            binput.close();
-        } catch (Exception e) {
-        	//Just don't care
-        }
+			BufferedInputStream binput = new BufferedInputStream(url.openStream());
+			record_file(binput);
+			binput.close();
+		} catch (Exception e) {
+			//Just don't care
+		}
 
-        synchronized (this) {
-        	completed = true;
-           	this.notify();
-        }
-    }
+		synchronized (this) {
+			completed = true;
+			this.notify();
+		}
+	}
 }
 
 class HttpToFileAsync extends AbstractHttpToFileAsync {
@@ -128,9 +128,9 @@ public class WordListLoader {
 
 		return -1;
 	}
-	
+
 	private void mkdir_local(String filename)
-	{		
+	{
 		File file = new File(filename);
 		if (!file.exists())
 			file.mkdir();
@@ -139,16 +139,16 @@ public class WordListLoader {
 	public boolean load() throws InterruptedException {
 		int old_version, new_version;
 		String local_path, wordlist_path;
-		
+
 		local_path = Settings.local_path;
 		wordlist_path = Settings.wordlist_path;
 
 		if (local_path == null || wordlist_path == null)
 			return false;
-		
+
 		mkdir_local(local_path);
 		mkdir_local(wordlist_path);
-		
+
 		local_ver = local_path + "/wordlist_ver";
 
 		old_version = get_local_version();

@@ -25,17 +25,17 @@ public class ExplorerAdapter extends ArrayAdapter<WordListFile>{
 	private ArrayList<View> rows;
 	private SelectWordlistActivity activity;
 	private File path; // relative to wordlist dir
-	
+
 	private void get_wordlist_array() throws Exception {
 		File[] files = path.listFiles();
-		
+
 		if (files == null)
 			return;
 
 		for (File file : files)
 			this.add(new WordListFile(file));
 	}
-	
+
 	public ExplorerAdapter(SelectWordlistActivity activity, File path) throws Exception {
 		super(activity, R.layout.select_wordlist_files);
 		this.activity = activity;
@@ -43,28 +43,28 @@ public class ExplorerAdapter extends ArrayAdapter<WordListFile>{
 		rows = new ArrayList<View>();
 		get_wordlist_array();
 	}
-	
+
 	public ExplorerAdapter(SelectWordlistActivity activity) throws Exception {
 		this(activity, new File(Settings.wordlist_path));
 	}
-	
+
 	public ExplorerAdapter(ExplorerAdapter parent, String path) throws Exception {
 		this(parent.activity, new File(parent.path, path));
 	}
-	
+
 	public boolean pathAllowed(String rel) {
 		File root = new File(Settings.wordlist_path);
 		File test = new File(this.path, rel);
 
 		try {
-			if (test.getCanonicalPath().startsWith(root.getCanonicalPath()))	
+			if (test.getCanonicalPath().startsWith(root.getCanonicalPath()))
 				return true;
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		return false;
 	}
-	
+
 	/* http://www.learn2crack.com/2013/10/android-custom-listview-images-text-example.html */
 	@Override
 	public View getView(int position, View view, ViewGroup parent) {
@@ -73,7 +73,7 @@ public class ExplorerAdapter extends ArrayAdapter<WordListFile>{
 		rows.add(position, row);
 		TextView path = (TextView) row.findViewById(R.id.wordlist_row_path);
 		ImageView icon = (ImageView) row.findViewById(R.id.wordlist_row_img);
-		
+
 		WordListFile file = this.getItem(position);
 		path.setText(file.getName());
 		if (file.isDirectory()) {
@@ -82,7 +82,7 @@ public class ExplorerAdapter extends ArrayAdapter<WordListFile>{
 			if (activity.getListView().isItemChecked(position))
 				row.setBackgroundResource(android.R.color.holo_blue_dark);
 		}
-		
+
 		return row;
 	}
 }

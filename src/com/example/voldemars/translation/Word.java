@@ -24,7 +24,7 @@ public class Word {
 			return this.russian;
 		else return null;
 	}
-	
+
 	public static String translation_language() {
 		if (Word.curr_translated == Lang.LATVIAN)
 			return "latvian";
@@ -39,5 +39,5 @@ public class Word {
 	public int compareTo(Word another) {
 		return stats.compareTo(another.stats);
 	}
-	*/
+	 */
 }

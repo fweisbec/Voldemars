@@ -13,27 +13,27 @@ import com.example.voldemars.translation.Debug;
 import com.example.voldemars.translation.MainActivity;
 
 public class SelectWordlistButtonListener implements View.OnClickListener {
-		private SelectWordlistActivity activity;
+	private SelectWordlistActivity activity;
 
-		public SelectWordlistButtonListener(SelectWordlistActivity activity) {
-			super();
-			this.activity = activity;
+	public SelectWordlistButtonListener(SelectWordlistActivity activity) {
+		super();
+		this.activity = activity;
+	}
+
+	@Override
+	public void onClick(View arg0) {
+		/* Get passed settings from old intent */
+		IntentArgument arg = IntentArgument.getActivityIntentArgument(activity);
+		if (arg == null) {
+			Debug.out("Intent argument null");
+			return;
 		}
 
-		@Override
-		public void onClick(View arg0) {
-			/* Get passed settings from old intent */
-			IntentArgument arg = IntentArgument.getActivityIntentArgument(activity);
-			if (arg == null) {
-				Debug.out("Intent argument null");
-				return;
-			}
-			
-			arg.add_wordlist_files(activity.files);
+		arg.add_wordlist_files(activity.files);
 
-			/* Launch main translation */
-			Intent intent = new Intent(activity, MainActivity.class);
-			intent.putExtra(IntentArgument.key, arg);
-			activity.startActivity(intent);
-		}
+		/* Launch main translation */
+		Intent intent = new Intent(activity, MainActivity.class);
+		intent.putExtra(IntentArgument.key, arg);
+		activity.startActivity(intent);
+	}
 }
