@@ -13,6 +13,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import com.example.voldemars.settings.Settings;
+import com.example.voldemars.translation.Debug;
 
 
 abstract class AbstractHttpToFileAsync extends Thread {
@@ -77,9 +78,17 @@ class ZipHttpToFileAsync extends AbstractHttpToFileAsync  {
 		super(url);
 	}
 
+	private void mkdir_zentry(ZipEntry ze)
+	{
+		String filename = Settings.wordlist_path + ze.getName();
+		File file = new File(filename);
+		if (!file.exists())
+			file.mkdir();
+	}
+
 	private void write_zentry(ZipInputStream zis, ZipEntry ze) throws Exception
 	{
-		String filename = Settings.wordlist_path + "/" + ze.getName();
+		String filename = Settings.wordlist_path + ze.getName();
 		OutputStream output = new FileOutputStream(filename);
 
 		byte data[] = new byte[1024];
@@ -97,9 +106,12 @@ class ZipHttpToFileAsync extends AbstractHttpToFileAsync  {
 		ZipInputStream zinput = new ZipInputStream(input);
 		ZipEntry ze;
 
-		while ((ze = zinput.getNextEntry()) != null)
-			write_zentry(zinput, ze);
-
+		while ((ze = zinput.getNextEntry()) != null) {
+			if (ze.isDirectory())
+				mkdir_zentry(ze);
+			else
+				write_zentry(zinput, ze);
+		}
 		zinput.close();
 	}
 }
