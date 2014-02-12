@@ -173,3 +173,14 @@ n;femme;woman;*;женщина
 n;ventre;*;*;живот
 n;animal;animal;*;животное
 n;girafe;*;*;жираф
+
+# Karandach (Annie Tchernychev) page 38
+
+n;magazine;*;*;журнал
+n;usine;factory;*;завод
+n;petit-déjeuner;breakfast;*;завтрак
+n;château-fort;*;*;замок
+n;rideau;curtains;*;*занавес
+#n;ouest;*;*;
+#n;étoile;*;*;*
+#n;animal sauvage;*;*;*
