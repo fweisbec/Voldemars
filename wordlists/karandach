@@ -181,6 +181,6 @@ n;usine;factory;*;завод
 n;petit-déjeuner;breakfast;*;завтрак
 n;château-fort;*;*;замок
 n;rideau;curtains;*;*занавес
-#n;ouest;*;*;
-#n;étoile;*;*;*
-#n;animal sauvage;*;*;*
+n;ouest;west;*;запад
+n;étoile;star;*;звезда
+n;bête;beast;*;зверь
