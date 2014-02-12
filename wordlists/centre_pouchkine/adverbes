@@ -1,0 +1,19 @@
+
+#Temps
+ad;aujourd'hui;today;*;сегодня
+ad;hier;yesterday;*;вчера
+ad;avant;before;*;раньше
+
+#Temperature
+ad;froid (adv);coldly;*;холодно
+ad;chaud/tempéré (adv);warm;*;тепло
+ad;chaud/torride (adv);hot;*;жарко
+
+#divers
+ad;déjà;already;*;уже
+ad;encore;more;*;еще
+
+# Lieu
+ad;ici;here;*;здесь
+ad;là;there;*;там
+
