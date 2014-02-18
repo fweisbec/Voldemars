@@ -3,6 +3,14 @@
 ad;aujourd'hui;today;*;сегодня
 ad;hier;yesterday;*;вчера
 ad;avant;before;*;раньше
+ad;toujours;always;*;всегда
+ad;souvent;often;*;часто
+ad;parfois;sometimes;*;иногда
+ad;rarement;rarely;*;редко
+ad;jamais;never;*;никогда
+ad;d'abord;firstly;*;сначала
+ad;puis;then;*;потом
+
 
 #Temperature
 ad;froid (adv);coldly;*;холодно

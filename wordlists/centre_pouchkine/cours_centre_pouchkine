@@ -1,13 +1,5 @@
 # поехали
 
-v;répéter;repeat;*;повторять
-v;étudier;study;*;изучать
-v;se souvenir;remember;*;помнить
-v;se dêpécher;hurry;*;спешить
-n;langue;language;*;язык
-n;soleil;sun;*;солнце
-
-
 # урок 3
 
 n;enfer;hell;*;ад
@@ -35,9 +27,11 @@ n;arbre;tree;*;дерево
 n;feuille d'arbre;*;*;лист
 
 #
-v;être;to be;*;быть
 n;montre;*;*;часы
 n;idée;idea;*;идея
 n;dictionnaire;*;*;словарь
 n;sac;*;*;сумка
 n;clé;key;*;ключ
+
+n;langue;language;*;язык
+n;soleil;sun;*;солнце
