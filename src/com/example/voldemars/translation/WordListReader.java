@@ -29,7 +29,7 @@ public class WordListReader {
 	private boolean parseLine(String line, ArrayList<Word> list) {
 		Word wl;
 		String type, french, english, latvian, russian;
-		String[] valid_types = {"n", "a", "p", "c", "r", "v", "ad"};
+		String[] valid_types = {"n", "a", "p", "c", "r", "v", "ad", "he", "hs"};
 		String[] values;
 
 		values = line.split(";");
@@ -63,7 +63,7 @@ public class WordListReader {
 			if (russian.equals("*"))
 				return true;
 
-		wl = new Word(french, english, latvian, russian);
+		wl = new Word(french, english, latvian, russian, type);
 		list.add(wl);
 
 		return true;

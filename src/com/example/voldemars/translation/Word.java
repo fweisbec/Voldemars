@@ -7,13 +7,15 @@ public class Word {
 	String english;
 	String latvian;
 	String russian;
+	String type;
 	WordStats stats;
 
-	public Word(String french, String english, String latvian, String russian) {
+	public Word(String french, String english, String latvian, String russian, String type) {
 		this.french = french;
 		this.english = english;
 		this.latvian = latvian;
 		this.russian = russian;
+		this.type = type;
 		this.stats = new WordStats(this.french);
 	}
 

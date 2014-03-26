@@ -31,8 +31,9 @@ public class TranslationOutput {
 		out_native.setText(mark);
 	}
 
-	public void overwrite_translation(String s) {
+	public void overwrite_translation(String s, int pointer) {
 		in_translated.setText(s);
+		in_translated.setSelection(pointer);
 	}
 
 	public void reset_translation() {

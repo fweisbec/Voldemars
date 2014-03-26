@@ -47,7 +47,12 @@ public class WordListIterator {
 
 	public void init(WordList list) {
 		this.list = list;
-		out.set_next(list.curr().french);
+		Word w = list.curr();
+		out.set_next(w.french);
+		if (w.type.equals("he")) 
+			out.overwrite_translation(w.french, w.french.length());
+		else if (w.type.equals("hs"))
+			out.overwrite_translation(w.french, 0);
 		curr_failed = false;
 	}
 
@@ -81,7 +86,8 @@ public class WordListIterator {
 
 	public void giveup() {
 		curr_failed = true;
-		out.overwrite_translation(curr_translation());
+		String s = curr_translation();
+		out.overwrite_translation(s, s.length());
 	}
 
 	void input(String s) {
@@ -99,7 +105,13 @@ public class WordListIterator {
 			nr_asked = 0;
 			nr_success = 0;
 		}
-		out.set_next(list.next().french);
+		Word w = list.next();
+		out.set_next(w.french);
+		/* Prefill for "hole ending" entries */
+		if (w.type.equals("he"))
+			out.overwrite_translation(w.french, w.french.length());
+		else if (w.type.equals("hs"))
+			out.overwrite_translation(w.french, 0);
 		curr_failed = false;
 	}
 

@@ -129,6 +129,10 @@ public class MainActivity extends Activity {
 		/* User input listener */
 		input_listener = new TranslationInputListener(word_iter);
 		in_translated.setOnEditorActionListener(input_listener);
+		
+		/* filter */
+/*		WordFilter filter = new WordFilter(list);
+		in_translated.setFilters(new WordFilter[] {filter} );*/
 
 		/* Lets go */
 		word_iter.init(list);
