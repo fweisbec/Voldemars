@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:creativeCommons="http://backend.userland.com/creativeCommonsRssModule">
+<title type="text">Test</title>
+<!-- M. -->
+	<translation type="he">
+		<src lang="fr">я (есть)</src>
+		<hint>я </hint>
+		<dst lang="ru">я ем</dst>
+	</translation>
+	<translation type="he">
+		<src lang="fr">ты (есть)</src>
+		<hint>ты </hint>
+		<dst lang="ru">ты ешь</dst>
+	</translation>
+	<translation type="he">
+		<src lang="fr">он (есть)</src>
+		<hint>он </hint>
+		<dst lang="ru">он ест</dst>
+	</translation>
+	<translation type="he">
+		<src lang="fr">мы (есть)</src>
+		<hint>мы </hint>
+		<dst lang="ru">мы едим</dst>
+	</translation>
+	<translation type="he">
+		<src lang="fr">вы (есть)</src>
+		<hint>вы </hint>
+		<dst lang="ru">вы едите</dst>
+	</translation>
+	<translation type="he">
+		<src lang="fr">они (есть)</src>
+		<hint>они </hint>
+		<dst lang="ru">они едят</dst>
+	</translation>
+</feed>
