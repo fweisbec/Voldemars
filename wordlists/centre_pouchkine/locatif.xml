@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:creativeCommons="http://backend.userland.com/creativeCommonsRssModule">
+<title type="text">Test</title>
+<!-- Noms au locatif -->
+<!-- M. -->
+	<translation type="he">
+		<src lang="fr">дом</src>
+		<hint>в дом</hint>
+		<dst lang="ru">в доме</dst>
+	</translation>
+	<translation type="he">
+		<src lang="fr">город</src>
+		<hint>в город</hint>
+		<dst lang="ru">в городе</dst>
+	</translation>
+	<translation type="he">
+		<src lang="fr">словарь</src>
+		<hint>в словар</hint>
+		<dst lang="ru">в словаре</dst>
+	</translation>
+	<translation type="he">
+		<src lang="fr">трамвай</src>
+		<hint>в трамва</hint>
+		<dst lang="ru">в трамвае</dst>
+	</translation>
+<!-- N. -->
+	<translation type="he">
+		<src lang="fr">письмо</src>
+		<hint>в письм</hint>
+		<dst lang="ru">в письме</dst>
+	</translation>
+	<translation type="he">
+		<src lang="fr">окно</src>
+		<hint>в окн</hint>
+		<dst lang="ru">в окне</dst>
+	</translation>
+<!-- F. -->
+	<translation type="he">
+		<src lang="fr">книга</src>
+		<hint>в книг</hint>
+		<dst lang="ru">в книге</dst>
+	</translation>
+	<translation type="he">
+		<src lang="fr">машина</src>
+		<hint>в машин</hint>
+		<dst lang="ru">в машине</dst>
+	</translation>
+	<translation type="he">
+		<src lang="fr">деревня</src>
+		<hint>в деревн</hint>
+		<dst lang="ru">в деревне</dst>
+	</translation>
+<!-- F. + signe mou -->
+	<translation type="he">
+		<src lang="fr">площадь</src>
+		<hint>на площад</hint>
+		<dst lang="ru">на площади</dst>
+	</translation>
+	<translation type="he">
+		<src lang="fr">ночь</src>
+		<hint>в ноч</hint>
+		<dst lang="ru">в ночи</dst>
+	</translation>
+<!-- -ий, -ие, -ия -->
+	<translation type="he">
+		<src lang="fr">сценарий</src>
+		<hint>в сценари</hint>
+		<dst lang="ru">в сценарии</dst>
+	</translation>
+	<translation type="he">
+		<src lang="fr">задание</src>
+		<hint>в задани</hint>
+		<dst lang="ru">в задании</dst>
+	</translation>
+	<translation type="he">
+		<src lang="fr">Россия</src>
+		<hint>в Росси</hint>
+		<dst lang="ru">в России</dst>
+	</translation>
+</feed>
