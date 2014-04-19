@@ -50,9 +50,9 @@ public class WordListIterator {
 		Word w = list.curr();
 		out.set_next(w.french);
 		if (w.type.equals("he")) 
-			out.overwrite_translation(w.french, w.french.length());
+			out.overwrite_translation(w.hint, w.hint.length());
 		else if (w.type.equals("hs"))
-			out.overwrite_translation(w.french, 0);
+			out.overwrite_translation(w.hint, 0);
 		curr_failed = false;
 	}
 
@@ -109,9 +109,9 @@ public class WordListIterator {
 		out.set_next(w.french);
 		/* Prefill for "hole ending" entries */
 		if (w.type.equals("he"))
-			out.overwrite_translation(w.french, w.french.length());
+			out.overwrite_translation(w.hint, w.hint.length());
 		else if (w.type.equals("hs"))
-			out.overwrite_translation(w.french, 0);
+			out.overwrite_translation(w.hint, 0);
 		curr_failed = false;
 	}
 

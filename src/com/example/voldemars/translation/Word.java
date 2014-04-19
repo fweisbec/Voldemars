@@ -8,15 +8,24 @@ public class Word {
 	String latvian;
 	String russian;
 	String type;
+	String hint;
 	WordStats stats;
 
-	public Word(String french, String english, String latvian, String russian, String type) {
+	public Word(String french, String english, String latvian, String russian, String type, String hint) {
 		this.french = french;
 		this.english = english;
 		this.latvian = latvian;
 		this.russian = russian;
 		this.type = type;
+	    // Default hint to source is what we want most of the time with hint type
+	    if (hint.equals("") && (type.equals("hs") || type.equals("he")))
+    		hint = this.french;
+		this.hint = hint;
 		this.stats = new WordStats(this.french);
+	}
+	
+	public Word(String french, String english, String latvian, String russian, String type) {
+		this(french, english, latvian, russian, type, "");
 	}
 
 	public String translation() {
