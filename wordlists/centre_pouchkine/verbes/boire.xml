@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?> 
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:creativeCommons="http://backend.userland.com/creativeCommonsRssModule">
-<title type="text">есть</title>
+<title type="text">пить</title>
 <!-- M. -->
 	<translation type="he">
-		<src lang="fr">я (есть)</src>
+		<src lang="fr">я (пить)</src>
 		<hint>я </hint>
-		<dst lang="ru">я ем</dst>
+		<dst lang="ru">я пью</dst>
 	</translation>
 	<translation type="he">
-		<src lang="fr">ты (есть)</src>
+		<src lang="fr">ты (пить)</src>
 		<hint>ты </hint>
-		<dst lang="ru">ты ешь</dst>
+		<dst lang="ru">ты пьёшь</dst>
 	</translation>
 	<translation type="he">
-		<src lang="fr">он (есть)</src>
+		<src lang="fr">он (пить)</src>
 		<hint>он </hint>
-		<dst lang="ru">он ест</dst>
+		<dst lang="ru">он пьёт</dst>
 	</translation>
 	<translation type="he">
-		<src lang="fr">мы (есть)</src>
+		<src lang="fr">мы (пить)</src>
 		<hint>мы </hint>
-		<dst lang="ru">мы едим</dst>
+		<dst lang="ru">мы пьём</dst>
 	</translation>
 	<translation type="he">
-		<src lang="fr">вы (есть)</src>
+		<src lang="fr">вы (пить)</src>
 		<hint>вы </hint>
-		<dst lang="ru">вы едите</dst>
+		<dst lang="ru">вы пьёте</dst>
 	</translation>
 	<translation type="he">
-		<src lang="fr">они (есть)</src>
+		<src lang="fr">они (пить)</src>
 		<hint>они </hint>
-		<dst lang="ru">они едят</dst>
+		<dst lang="ru">они пьют</dst>
 	</translation>
 </feed>
