@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:creativeCommons="http://backend.userland.com/creativeCommonsRssModule">
+<title type="text">Adjectifs</title>
+<!-- Adjectifs -->
+	<translation type="hs">
+		<src lang="fr">jeune homme</src>
+		<hint> человек</hint>
+		<dst lang="ru">молодой человек</dst>
+	</translation>
+	<translation type="hs">
+		<src lang="fr">vieux papy</src>
+		<hint> дедушка</hint>
+		<dst lang="ru">старый дедушка</dst>
+	</translation>
+	<translation type="hs">
+		<src lang="fr">nouvelle maison</src>
+		<hint> дом</hint>
+		<dst lang="ru">новый дом</dst>
+	</translation>
+	<translation type="hs">
+		<src lang="fr">vent froid</src>
+		<hint> ветер</hint>
+		<dst lang="ru">холодный ветер</dst>
+	</translation>
+	<translation type="hs">
+		<src lang="fr">eau chaude</src>
+		<hint> вода</hint>
+		<dst lang="ru">горячая вода</dst>
+	</translation>
+	<translation type="hs">
+		<src lang="fr">première question</src>
+		<hint> вопрос</hint>
+		<dst lang="ru">первый вопрос</dst>
+	</translation>
+	<translation type="hs">
+		<src lang="fr">dernière réponse</src>
+		<hint> ответ</hint>
+		<dst lang="ru">последний ответ</dst>
+	</translation>
+	<translation type="hs">
+		<src lang="fr">voiture cher</src>
+		<hint> машина</hint>
+		<dst lang="ru">дорогая машина</dst>
+	</translation>
+	<translation type="hs">
+		<src lang="fr">pain bon-marché</src>
+		<hint> хлеб</hint>
+		<dst lang="ru">дешёвый хлеб</dst>
+	</translation>
+	<translation type="hs">
+		<src lang="fr">langue facile</src>
+		<hint> язык</hint>
+		<dst lang="ru">лёгкий язык</dst>
+	</translation>
+	<translation type="hs">
+		<src lang="fr">exercice difficile</src>
+		<hint> упражнение</hint>
+		<dst lang="ru">трудное упражнение</dst>
+	</translation>
+	<translation type="hs">
+		<src lang="fr">livre intéressant</src>
+		<hint> книга</hint>
+		<dst lang="ru">интересная книга</dst>
+	</translation>
+	<translation type="hs">
+		<src lang="fr">pays ennuyeux</src>
+		<hint> страна</hint>
+		<dst lang="ru">скучная страна</dst>
+	</translation>
+	<translation type="hs">
+		<src lang="fr">soeur riche</src>
+		<hint> сестра</hint>
+		<dst lang="ru">богатая сестра</dst>
+	</translation>
+	<translation type="hs">
+		<src lang="fr">frère pauvre</src>
+		<hint> брат</hint>
+		<dst lang="ru">бедный брат</dst>
+	</translation>
+	<translation type="hs">
+		<src lang="fr">rivière longue</src>
+		<hint> река</hint>
+		<dst lang="ru">длинная река</dst>
+	</translation>
+	<translation type="hs">
+		<src lang="fr">route courte</src>
+		<hint> дорога</hint>
+		<dst lang="ru">короткая дорога</dst>
+	</translation>
+	<translation type="hs">
+		<src lang="fr">grande ville</src>
+		<hint> город</hint>
+		<dst lang="ru">большой город</dst>
+	</translation>
+	<translation type="hs">
+		<src lang="fr">petit village</src>
+		<hint> деревня</hint>
+		<dst lang="ru">маленькая деревня</dst>
+	</translation>
+	<translation type="hs">
+		<src lang="fr">ciel clair</src>
+		<hint> небо</hint>
+		<dst lang="ru">светлое небо</dst>
+	</translation>
+	<translation type="hs">
+		<src lang="fr">nuage sombre</src>
+		<hint> облако</hint>
+		<dst lang="ru">тёмное облако</dst>
+	</translation>
+</feed>
