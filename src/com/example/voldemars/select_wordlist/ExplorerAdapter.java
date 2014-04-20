@@ -41,6 +41,7 @@ public class ExplorerAdapter extends ArrayAdapter<WordListFile>{
 		this.activity = activity;
 		this.path = path;
 		rows = new ArrayList<View>();
+		//Debug.out(path);
 		get_wordlist_array();
 	}
 

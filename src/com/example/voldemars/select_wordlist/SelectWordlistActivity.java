@@ -165,12 +165,7 @@ public class SelectWordlistActivity extends ListActivity {
 		if (!item.isDirectory()) {
 			update_dir_list();
 		} else {
-			try {
-				cwd(item.getWordListPath());
-			} catch (IOException e) {
-				// TODO Bloc catch généré automatiquement
-				e.printStackTrace();
-			}
+			cwd(item.getName());
 		}
 	}
 
