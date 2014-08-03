@@ -117,7 +117,7 @@ class ZipHttpToFileAsync extends AbstractHttpToFileAsync  {
 }
 
 public class WordListLoader {
-	static String remote = "https://raw.github.com/fweisbec/Voldemars/master/";
+	static String remote = "https://raw.githubusercontent.com/fweisbec/Voldemars-wordlists/master/";
 	static String remote_list = remote + "wordlist.zip";
 	static String remote_ver = remote + "wordlist_ver";
 
