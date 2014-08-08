@@ -1,21 +1,15 @@
 package com.example.voldemars.translation;
 
-import java.util.ArrayList;
 
 import com.example.voldemars.R;
-import com.example.voldemars.ChoiceLanguage.ChoiceLanguageButtonListener;
-import com.example.voldemars.select_wordlist.WordListLoader;
 import com.example.voldemars.settings.IntentArgument;
 import com.example.voldemars.settings.Settings;
-import com.example.voldemars.translation.Word.Lang;
 
 import android.os.Bundle;
 import android.app.Activity;
-import android.content.Intent;
 import android.text.InputType;
 import android.view.Gravity;
 import android.view.Menu;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -38,22 +32,6 @@ public class MainActivity extends Activity {
 		argument = IntentArgument.getActivityIntentArgument(this);
 		if (argument == null) {
 			Debug.out("Missing intent argument");
-			return;
-		}
-
-		//Debug.out(arg);
-		String language = argument.get_dest_lang();
-		if (language == null) {
-			Debug.out("No language passed to main activity!");
-			return;
-		}
-
-		if (language.equals("latvian"))
-			Word.curr_translated = Word.Lang.LATVIAN;
-		else if (language.equals("russian"))
-			Word.curr_translated = Word.Lang.RUSSIAN;
-		else {
-			Debug.out(language);
 			return;
 		}
 

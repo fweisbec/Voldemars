@@ -82,7 +82,7 @@ public class WordListXmlReader extends WordListReader {
 	        }
 	    }
 	    Debug.out(hint);
-	    return new Word(src, null, null, dst, type, hint);
+	    return new Word(src, dst, type, hint);
 	}
 
 	private void readFile(WordList list, XmlPullParser parser) throws XmlPullParserException, IOException {

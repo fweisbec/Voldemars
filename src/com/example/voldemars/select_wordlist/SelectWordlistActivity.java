@@ -1,41 +1,22 @@
 package com.example.voldemars.select_wordlist;
 
-import java.io.File;
+
 import java.io.IOException;
-import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
 
 import com.example.voldemars.R;
-import com.example.voldemars.ChoiceLanguage.ChoiceLanguageButtonListener;
-import com.example.voldemars.R.layout;
-import com.example.voldemars.R.menu;
 import com.example.voldemars.settings.Settings;
 import com.example.voldemars.translation.Debug;
-import com.example.voldemars.translation.Word;
-import com.example.voldemars.translation.WordList;
 
 import android.os.Bundle;
-import android.app.Activity;
 import android.app.ListActivity;
-import android.util.AttributeSet;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.support.v4.app.NavUtils;
-import android.annotation.TargetApi;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Build;
 
 public class SelectWordlistActivity extends ListActivity {
 	private ListView listview;

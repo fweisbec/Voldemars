@@ -13,7 +13,6 @@ import android.app.Activity;
 import android.content.Intent;
 
 public class IntentArgument implements Serializable{
-	private String dest_lang;
 	public static String key = "com.example.voldemars.settings";
 	private HashSet<String> wordlists;
 
@@ -39,20 +38,8 @@ public class IntentArgument implements Serializable{
 		return Collections.unmodifiableSet(wordlists);
 	}
 
-	public String get_dest_lang() {
-		return this.dest_lang;
-	}
-
-	public void set_dest_lang(String dest_lang) {
-		this.dest_lang = dest_lang;
-	}
-
 	public String toString() {
 		StringBuffer buf = new StringBuffer();
-
-		buf.append("Dest lang: ");
-		if (this.dest_lang != null)
-			buf.append(this.dest_lang);
 
 		buf.append(" Wordlist files: ");
 		for (String wordlist : wordlists)

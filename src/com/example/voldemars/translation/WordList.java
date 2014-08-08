@@ -79,7 +79,7 @@ public class WordList extends ArrayList<Word> {
 			Word w;
 
 			w = it.next();
-			if (w.french.equals(stats.native_word)) {
+			if (w.src.equals(stats.native_word)) {
 				w.stats = stats;
 				return true;
 			}
@@ -92,11 +92,7 @@ public class WordList extends ArrayList<Word> {
 		if (path == null)
 			return null;
 
-		String lang = Word.translation_language();
-		if (lang == null)
-			return null;
-
-		path += "/word_stats_" + lang;
+		path += "/word_stats";
 
 		return path;
 	}

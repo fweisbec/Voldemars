@@ -48,7 +48,7 @@ public class WordListIterator {
 	public void init(WordList list) {
 		this.list = list;
 		Word w = list.curr();
-		out.set_next(w.french);
+		out.set_next(w.src);
 		if (w.type.equals("he")) 
 			out.overwrite_translation(w.hint, w.hint.length());
 		else if (w.type.equals("hs"))
@@ -106,7 +106,7 @@ public class WordListIterator {
 			nr_success = 0;
 		}
 		Word w = list.next();
-		out.set_next(w.french);
+		out.set_next(w.src);
 		/* Prefill for "hole ending" entries */
 		if (w.type.equals("he"))
 			out.overwrite_translation(w.hint, w.hint.length());
